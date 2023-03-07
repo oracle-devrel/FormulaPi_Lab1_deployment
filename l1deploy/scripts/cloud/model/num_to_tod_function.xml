@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog 
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+	<changeSet id="5bebaefe0fef18d9d510376d5a18e69c1c252d8e" author="(SIMDEV)-Generated" failOnError="false"    >
+		<n0:createOracleFunction objectName="NUM_TO_TOD" objectType="FUNCTION" ownerName="SIMDEV"   >
+			<n0:source><![CDATA[
+  CREATE OR REPLACE EDITIONABLE FUNCTION "NUM_TO_TOD" (tod NUMBER)
+RETURN timestamp IS
+   new_tst timestamp;
+
+BEGIN
+    new_tst := to_timestamp(TO_CHAR(tod / (1000 * 60 * 60 * 24) + TO_DATE('1970-01-01 10:00:00', 'YYYY-MM-DD HH:MI:SS'), 'YYYY-MM-DD HH24:MI:SS') ,'YYYY-MM-DD HH24:MI:SS');
+
+    RETURN new_tst;
+
+END ;]]></n0:source>
+		</n0:createOracleFunction>
+	</changeSet>
+</databaseChangeLog>

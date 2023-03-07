@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog 
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+	<changeSet id="40bd4032b52a05721f9c250e383bfa3e0be40b94" author="(SIMDEV)-Generated" failOnError="false"    >
+		<n0:createOracleTrigger objectName="BI_REG_QUESTIONS" objectType="TRIGGER" ownerName="SIMDEV"   >
+			<n0:source><![CDATA[
+  CREATE OR REPLACE EDITIONABLE TRIGGER "BI_REG_QUESTIONS" 
+  before insert on "REG_QUESTIONS"               
+  for each row  
+begin   
+  if :NEW."ID" is null then 
+    select "REG_QUESTIONS_SEQ".nextval into :NEW."ID" from sys.dual; 
+  end if; 
+end; 
+
+
+/
+ALTER TRIGGER "BI_REG_QUESTIONS" ENABLE]]></n0:source>
+		</n0:createOracleTrigger>
+	</changeSet>
+</databaseChangeLog>

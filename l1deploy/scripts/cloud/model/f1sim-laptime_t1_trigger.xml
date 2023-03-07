@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog 
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+	<changeSet id="e310c7e8b3fea93f918cd930d6ddeb5858387e83" author="(SIMDEV)-Generated" failOnError="false"    >
+		<n0:createOracleTrigger objectName="F1SIM-LAPTIME_T1" objectType="TRIGGER" ownerName="SIMDEV"   >
+			<n0:source><![CDATA[
+  CREATE OR REPLACE EDITIONABLE TRIGGER "SIMDEV"."F1SIM-LAPTIME_T1" 
+AFTER
+insert on "F1SIM-LAPTIME"
+for each row
+begin
+INSERT INTO "F1SIM_GAMEHOST_DS"
+("SESSION_IDENTIFIER", "FRAME", "RACETIME", 
+ "LAP_NUM", "SECTOR", "LAST_LAP_TIME_MS", "SPEED_KPH", "THROTTLE", "STEERING", "BRAKE", "GEAR", "ENGINE_RPM", "YAW", "PITCH", "ROLL", 
+ "WORLDPOSX", "WORLDPOSY", "WORLDPOSZ", "WORLDFORWARDDIRX", "WORLDFORWARDDIRY", "WORLDFORWARDDIRZ", "WORLDRIGHTDIRX", "WORLDRIGHTDIRY", "WORLDRIGHTDIRZ",
+ "CURRENT_LAP_TIME_MS", "SECTOR_1_TIME_MS", "SECTOR_2_TIME_MS", "LAP_DISTANCE", "M_DRIVER_STATUS", "GAME_HOST", "LAP_TIME_MS", "SECTOR_3_MS",
+ "R_SESSION", "R_EMAIL", "NAME", "R_TRACKID", "R_GAMEHOST", "R_FAV_TEAM", "R_STATUS", 
+ "LAP_TIME", "SECTOR_1_TIME", "SECTOR_2_TIME", "SECTOR_3_TIME", "CURRENT_LAP_TIME", 
+ "FRAME_ID", "SESSION_START_TIME", "VERSION"
+ )
+ -- ROW_NUMBER() OVER (PARTITION BY L."DATA$m_session" ORDER BY L."DATA$m_frame" ASC) d1
+ SELECT L."DATA$m_session", L."DATA$m_frame", R.R_LAST_UPDATED, 
+   :NEW."DATA$lap_num", L."DATA$m_sector", L."DATA$m_last_lap_time_in_ms", T."DATA$m_speed", T."DATA$m_throttle", T."DATA$m_steer", T."DATA$m_brake", T."DATA$m_gear", 
+   T."DATA$m_engineRPM", M."DATA$m_yaw", M."DATA$m_pitch", M."DATA$m_roll", M."DATA$m_worldPosX", M."DATA$m_worldPosY", M."DATA$m_worldPosZ",
+   M."DATA$worldForwardDirX", M."DATA$worldForwardDirY", M."DATA$worldForwardDirZ", M."DATA$worldRightDirX", M."DATA$worldRightDirY", M."DATA$worldRightDirZ",
+   L."DATA$m_current_lap_time_in_ms", :NEW."DATA$sector1_in_ms", :NEW."DATA$sector2_in_ms", L."DATA$m_lap_distance", L."DATA$m_driver_status",
+   L."DATA$m_gamehost", :NEW."DATA$lap_time_in_ms", :NEW."DATA$sector3_in_ms", R.R_SESSION, R.R_EMAIL, R.R_NAME, R.R_TRACKID, R.R_GAMEHOST, R.R_FAV_TEAM, R.R_STATUS,
+   to_char(extract(MINUTE FROM numtodsinterval(:NEW."DATA$lap_time_in_ms"/1000, 'SECOND')), 'fm0') || ':' || to_char(extract(SECOND FROM numtodsinterval(:NEW."DATA$lap_time_in_ms"/1000, 'SECOND')), 'fm00.000'),
+   to_char(:NEW."DATA$sector1_in_ms"/1000, 999.999),
+   to_char(:NEW."DATA$sector2_in_ms"/1000, 999.999),
+   to_char(:NEW."DATA$sector3_in_ms"/1000, 999.999),
+   to_char(extract(MINUTE FROM numtodsinterval(L."DATA$m_current_lap_time_in_ms"/1000, 'SECOND')), 'fm0') || ':' || to_char(extract(SECOND FROM numtodsinterval(L."DATA$m_current_lap_time_in_ms"/1000, 'SECOND')), 'fm00.000'),
+   to_char(L."DATA$m_frame")
+   , R.R_LAST_UPDATED,
+   :NEW."DATA$m_packet_format"
+FROM "F1SIM-LAPDATA" L
+INNER JOIN (select DISTINCT l."DATA$m_session" m_session, l."DATA$m_current_lap_num" lap,
+MIN(l."DATA$m_frame") OVER (PARTITION BY l."DATA$m_session", l."DATA$m_current_lap_num" ORDER BY l."DATA$m_session", l."DATA$m_current_lap_num") startf,
+MAX(l."DATA$m_frame") OVER (PARTITION BY l."DATA$m_session", l."DATA$m_current_lap_num" ORDER BY l."DATA$m_session", l."DATA$m_current_lap_num") endf
+FROM "F1SIM-LAPDATA" l) LF
+   ON LF.m_session = L."DATA$m_session" AND LF.startf <= L."DATA$m_frame" AND L."DATA$m_frame" <= LF.endf AND L."DATA$m_current_lap_num" = LF.lap
+INNER JOIN "F1SIM-TELEMETRY" T
+   ON T."DATA$m_session" = L."DATA$m_session" AND T."DATA$m_frame" = L."DATA$m_frame"
+INNER JOIN "F1SIM-MOTION" M
+   ON L."DATA$m_session" = M."DATA$m_session" AND L."DATA$m_frame" = M."DATA$m_frame"
+LEFT OUTER JOIN "F1_22RACERS" R
+   ON R.R_SESSION = L."DATA$m_session"
+WHERE L."DATA$m_session" = :NEW."DATA$m_session"
+  AND L."DATA$m_current_lap_num" = :NEW."DATA$lap_num";
+-- This to catch all
+-- UPDATE "OCW_GAMEHOST_DS" O
+-- SET ("RACETIME", "SESSION_START_TIME", "R_SESSION", "R_EMAIL", "NAME", "R_TRACKID", "R_GAMEHOST", "R_FAV_TEAM", "R_STATUS") =
+--     (SELECT R_LAST_UPDATED, R_LAST_UPDATED, R_SESSION, R_EMAIL, R_NAME, R_TRACKID, R_GAMEHOST, R_FAV_TEAM, R_STATUS
+--      FROM F1_22RACERS R
+--      WHERE O."SESSION_IDENTIFIER" = R.R_SESSION)
+-- WHERE O."SESSION_IDENTIFIER" IN 
+--      (SELECT R_SESSION
+--      FROM F1_22RACERS R
+--      WHERE O."SESSION_IDENTIFIER" = R.R_SESSION)
+--   AND O."R_SESSION" IS NULL;
+end;
+
+
+/
+ALTER TRIGGER "SIMDEV"."F1SIM-LAPTIME_T1" ENABLE]]></n0:source>
+		</n0:createOracleTrigger>
+	</changeSet>
+</databaseChangeLog>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog 
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+	<changeSet id="6bea88b037c322e89cb1f1b6f38011eacfed3a7f" author="(SIMDEV)-Generated" failOnError="false"    >
+		<n0:createOracleFunction objectName="FLIP_COORD" objectType="FUNCTION" ownerName="SIMDEV"   >
+			<n0:source><![CDATA[
+  CREATE OR REPLACE EDITIONABLE FUNCTION "FLIP_COORD" (pos NUMBER, flip NUMBER)
+RETURN NUMBER IS
+   new_coord NUMBER;
+
+BEGIN
+    new_coord := pos + flip;
+
+    if new_coord < 0 THEN 
+        new_coord := new_coord + 360;
+    ELSIF new_coord >359 THEN
+        new_coord := new_coord - 360;
+    END IF;
+
+    RETURN new_coord;
+
+END ;]]></n0:source>
+		</n0:createOracleFunction>
+	</changeSet>
+</databaseChangeLog>

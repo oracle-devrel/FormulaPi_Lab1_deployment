@@ -1,0 +1,31 @@
+{
+  "workshoptitle": "Formula Pi",
+  "help": "livelabs-help-**enterarea**_us@oracle.com",
+  "variables": ["../../variables/variables.json",
+    "../../variables/variables-in-another-file.json"],
+  "tutorials": [
+    {
+      "title": "Introduction",
+      "description": "Formula Pi",
+      "filename": "../../introduction/introduction.md"
+    },
+    {
+      "title": "Lab 1: Deploying Infrastructure",
+      "description": "Labs that follow the introduction are numbered, starting with Lab 1",
+      "filename": "../../l1deploy/deploying.md"
+    },
+    {
+      "title": "Lab 2: Data ingestion setup",
+      "filename": "../../l2dataingest/data-ingestion.md"
+    },
+    {
+      "title": "Lab 3: APEX Dashboard - low code environment",
+      "filename": "../../l3apex/import-custom-apex-app.md"
+    },
+    {
+      "title": "Need Help?",
+      "description": "Solutions to Common Problems and Directions for Receiving Live Help",
+      "filename": "https://oracle-livelabs.github.io/common/labs/need-help/need-help-livelabs.md"
+    }
+  ]
+}

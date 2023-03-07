@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog 
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+	<changeSet id="2b8cf259b259fe8d0d0bc1f9e6e665f72778cbff" author="(SIMDEV)-Generated" failOnError="false"    >
+		<n0:createSxmlObject objectName="VF1_LEADERBOARD2" objectType="VIEW" ownerName="SIMDEV"   >
+			<n0:source><![CDATA[
+  <VIEW xmlns="http://xmlns.oracle.com/ku" version="1.0">
+   <SCHEMA>SIMDEV</SCHEMA>
+   <NAME>VF1_LEADERBOARD2</NAME>
+   <DEFAULT_COLLATION>USING_NLS_COMP</DEFAULT_COLLATION>
+   <COL_LIST>
+      <COL_LIST_ITEM>
+         <NAME>M_GAMEHOST</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>M_SESSION</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>M_TRACKID</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>M_PACKET_FORMAT</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>LAP_NUM</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>LAP_TIME_IN_MS</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>SECTOR1_IN_MS</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>SECTOR2_IN_MS</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>SECTOR3_IN_MS</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>INVALID_LAP</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>R_EMAIL</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>R_NAME</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>R_STATUS</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>OVERALL_POS</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>EVENT_POS</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>SESSION_POS</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>DRIVER_POS</NAME>
+      </COL_LIST_ITEM>
+   </COL_LIST>
+   <SUBQUERY>select M_GAMEHOST, M_SESSION, M_TRACKID, M_PACKET_FORMAT, LAP_NUM,
+LAP_TIME_IN_MS, SECTOR1_IN_MS, SECTOR2_IN_MS, SECTOR3_IN_MS, INVALID_LAP,
+NVL(R_EMAIL, ''), NVL(R_NAME, 'DRIVER'), NVL(R_STATUS,3 ),
+RANK() OVER (PARTITION BY M_TRACKID, M_PACKET_FORMAT ORDER BY LAP_TIME_IN_MS ) OVERALL_POS,
+RANK() OVER (PARTITION BY M_TRACKID, M_PACKET_FORMAT,M_GAMEHOST ORDER BY LAP_TIME_IN_MS ) EVENT_POS,
+RANK() OVER (PARTITION BY M_TRACKID, M_PACKET_FORMAT, M_SESSION ORDER BY LAP_TIME_IN_MS ) SESSION_POS,
+RANK() OVER (PARTITION BY M_TRACKID, ms.R_PACKET_FORMAT, R_EMAIL ORDER BY LAP_TIME_IN_MS) DRIVER_POS
+ from VF1_LAPTIME lt
+ LEFT JOIN VF1_MEMBER_SESSIONS ms ON ms.R_SESSION = lt.M_SESSION
+ ORDER BY M_TRACKID, M_PACKET_FORMAT</SUBQUERY>
+</VIEW>]]></n0:source>
+		</n0:createSxmlObject>
+	</changeSet>
+</databaseChangeLog>

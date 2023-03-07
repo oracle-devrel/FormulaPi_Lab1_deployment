@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog 
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+	<changeSet id="6587b57f206d1aaa6abdc66dff39b4342c3af799" author="(SIMDEV)-Generated" failOnError="false"    >
+		<n0:createSxmlObject objectName="F1SIM-SESSION-HISTORY" objectType="TABLE" ownerName="SIMDEV"   >
+			<n0:source><![CDATA[
+  <TABLE xmlns="http://xmlns.oracle.com/ku" version="1.0">
+   <SCHEMA>SIMDEV</SCHEMA>
+   <NAME>F1SIM-SESSION-HISTORY</NAME>
+   <RELATIONAL_TABLE>
+      <COL_LIST>
+         <COL_LIST_ITEM>
+            <NAME>ID</NAME>
+            <DATATYPE>VARCHAR2</DATATYPE>
+            <LENGTH>255</LENGTH>
+            <COLLATE_NAME>USING_NLS_COMP</COLLATE_NAME>
+         </COL_LIST_ITEM>
+         <COL_LIST_ITEM>
+            <NAME>CREATED_ON</NAME>
+            <DATATYPE>TIMESTAMP</DATATYPE>
+            <SCALE>6</SCALE>
+            <NOT_NULL></NOT_NULL>
+         </COL_LIST_ITEM>
+         <COL_LIST_ITEM>
+            <NAME>LAST_MODIFIED</NAME>
+            <DATATYPE>TIMESTAMP</DATATYPE>
+            <SCALE>6</SCALE>
+            <NOT_NULL></NOT_NULL>
+         </COL_LIST_ITEM>
+         <COL_LIST_ITEM>
+            <NAME>VERSION</NAME>
+            <DATATYPE>VARCHAR2</DATATYPE>
+            <LENGTH>255</LENGTH>
+            <COLLATE_NAME>USING_NLS_COMP</COLLATE_NAME>
+            <NOT_NULL></NOT_NULL>
+         </COL_LIST_ITEM>
+         <COL_LIST_ITEM>
+            <NAME>DATA</NAME>
+            <DATATYPE>BLOB</DATATYPE>
+         </COL_LIST_ITEM>
+      </COL_LIST>
+      <CHECK_CONSTRAINT_LIST>
+         <CHECK_CONSTRAINT_LIST_ITEM>
+            <CONDITION>DATA is json format oson</CONDITION>
+         </CHECK_CONSTRAINT_LIST_ITEM>
+      </CHECK_CONSTRAINT_LIST>
+      <DEFAULT_COLLATION>USING_NLS_COMP</DEFAULT_COLLATION>
+      <PHYSICAL_PROPERTIES>
+         <HEAP_TABLE>
+            <SEGMENT_ATTRIBUTES>
+               <SEGMENT_CREATION_DEFERRED></SEGMENT_CREATION_DEFERRED>
+               <PCTFREE>10</PCTFREE>
+               <PCTUSED>40</PCTUSED>
+               <INITRANS>10</INITRANS>
+               <MAXTRANS>255</MAXTRANS>
+               <TABLESPACE>DATA</TABLESPACE>
+               <LOGGING>Y</LOGGING>
+            </SEGMENT_ATTRIBUTES>
+            <COMPRESS>N</COMPRESS>
+         </HEAP_TABLE>
+      </PHYSICAL_PROPERTIES>
+      <TABLE_PROPERTIES>
+         <COLUMN_PROPERTIES>
+            <COL_LIST>
+               <COL_LIST_ITEM>
+                  <NAME>DATA</NAME>
+                  <DATATYPE>BLOB</DATATYPE>
+                  <LOB_PROPERTIES>
+                     <STORAGE_TABLE>
+                        <TABLESPACE>DATA</TABLESPACE>
+                        <SECUREFILE></SECUREFILE>
+                        <STORAGE_IN_ROW></STORAGE_IN_ROW>
+                        <CHUNK>8192</CHUNK>
+                        <CACHE>Y</CACHE>
+                        <VALIDATE>N</VALIDATE>
+                     </STORAGE_TABLE>
+                  </LOB_PROPERTIES>
+               </COL_LIST_ITEM>
+            </COL_LIST>
+         </COLUMN_PROPERTIES>
+      </TABLE_PROPERTIES>
+   </RELATIONAL_TABLE>
+</TABLE>]]></n0:source>
+		</n0:createSxmlObject>
+	</changeSet>
+</databaseChangeLog>
