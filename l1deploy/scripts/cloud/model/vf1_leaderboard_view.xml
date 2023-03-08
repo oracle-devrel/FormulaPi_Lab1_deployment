@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog 
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+	<changeSet id="d68ff26fa238f0b97fbd6b203bc8d0ab9ae465fb" author="(SIMDEV)-Generated" failOnError="false"    >
+		<n0:createSxmlObject objectName="VF1_LEADERBOARD" objectType="VIEW" ownerName="SIMDEV"   >
+			<n0:source><![CDATA[
+  <VIEW xmlns="http://xmlns.oracle.com/ku" version="1.0">
+   <SCHEMA>SIMDEV</SCHEMA>
+   <NAME>VF1_LEADERBOARD</NAME>
+   <DEFAULT_COLLATION>USING_NLS_COMP</DEFAULT_COLLATION>
+   <COL_LIST>
+      <COL_LIST_ITEM>
+         <NAME>M_GAMEHOST</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>M_SESSION</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>M_TRACKID</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>OVERALL_POS</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>EVENT_POS</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>SESS_POS</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>LAP</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>S1</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>S2</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>S3</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>LT</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>LAPTIME</NAME>
+      </COL_LIST_ITEM>
+   </COL_LIST>
+   <SUBQUERY>WITH laptimes AS (
+    select DISTINCT l."DATA$m_gamehost" m_gamehost, l."DATA$m_session" m_session, 
+        to_number(l."DATA$m_current_lap_num") lap,
+        max(to_number(l."DATA$m_sector1_time_in_ms")) over (partition by l."DATA$m_session", l."DATA$m_current_lap_num") s1,
+        max(to_number(l."DATA$m_sector2_time_in_ms")) over (partition by l."DATA$m_session", l."DATA$m_current_lap_num" ) s2, 
+        to_number(l."DATA$m_last_lap_time_in_ms") lt,
+        max(to_number(l."DATA$m_current_lap_num")) over (partition by l."DATA$m_session") total_laps
+    from "F1SIM-LAPDATA" l  )
+
+SELECT m_gamehost, m_session, m_trackid, 
+    rank() OVER (partition by m_trackid ORDER BY lt) total_rank,
+    rank() OVER (partition by m_gamehost, m_trackid ORDER BY lt) event_rank,
+    rank() OVER (partition by m_session order by lt) session_rank,
+    lap, s1, s2, (lt - s1 - s2) s3, lt,numtodsinterval(lt/1000, 'SECOND') laptime
+FROM (
+    SELECT l.m_gamehost, l.m_session, s.m_trackid, l.lap, l.total_laps, l.s1, l.s2,
+    LEAD (l.lt,1,0) OVER (partition by l.m_session order by l.m_session, l.lap) lt
+    FROM laptimes l, f1_SESSIONV s WHERE s.M_SESSION = l.M_SESSION  
+    ORDER BY l.m_session, l.lap ) 
+WHERE lt &#60;> 0 AND s2 > 15000</SUBQUERY>
+</VIEW>]]></n0:source>
+		</n0:createSxmlObject>
+	</changeSet>
+</databaseChangeLog>

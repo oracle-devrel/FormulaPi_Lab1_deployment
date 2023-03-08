@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} F1 Configuration {% endblock %}</h1>
+    <button class="btn btn-lg btn-primary" onClick="parent.location='/yaml/load'">Load YAML Config</button>
+    <button class="btn btn-lg btn-primary" onClick="parent.location='/service'">Back To Service Status</button>
+    <br/>
+    <br/>
+    <div>f1store.yaml</div>
+    <form action="{{ url_for('f1config_save') }}" method="POST">
+        <div><textarea style="resize:none; display: block; font-family: monospace; white-space: pre; margin: 1em 0;" rows="24" cols="128" name="storetxt">{{ storetxt }}</textarea></div>
+        <input type="submit" value="Save YAML Config" class="btn btn-lg btn-primary"/>
+    </form>
+{% endblock %}

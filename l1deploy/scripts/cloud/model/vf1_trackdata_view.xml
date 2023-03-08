@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog 
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+	<changeSet id="b99dc88c2e20f0432699c31cc2a6e46dfedc43d2" author="(SIMDEV)-Generated" failOnError="false"    >
+		<n0:createSxmlObject objectName="VF1_TRACKDATA" objectType="VIEW" ownerName="SIMDEV"   >
+			<n0:source><![CDATA[
+  <VIEW xmlns="http://xmlns.oracle.com/ku" version="1.0">
+   <SCHEMA>SIMDEV</SCHEMA>
+   <NAME>VF1_TRACKDATA</NAME>
+   <DEFAULT_COLLATION>USING_NLS_COMP</DEFAULT_COLLATION>
+   <COL_LIST>
+      <COL_LIST_ITEM>
+         <NAME>ID</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>TRACK</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>COUNTRY</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>VERSION</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>MAP_WIDTH</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>MAP_HEIGHT</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>TRACK_LENGTH</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>TURNS</NAME>
+      </COL_LIST_ITEM>
+   </COL_LIST>
+   <SUBQUERY>(
+select DISTINCT c.ID, c.TRACK, c.COUNTRY, c.VERSION, c.MAP_WIDTH, c.MAP_HEIGHT, c.TRACK_LENGTH, 
+COUNT(t.TURN) OVER (partition by t.TRACK, t.VERSION) TURNS
+FROM "F1SIM-TRACK" c
+LEFT JOIN "F1SIM-TRACKDATA" t ON c.TRACK = t.TRACK and c.VERSION = t.VERSION
+)</SUBQUERY>
+</VIEW>]]></n0:source>
+		</n0:createSxmlObject>
+	</changeSet>
+</databaseChangeLog>

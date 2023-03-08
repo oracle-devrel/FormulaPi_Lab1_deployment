@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2 id="title">F1 Simulator</h2>
+<div class="fluid-container">
+    <div>
+        <div>Gamehost: <span class="txt-gry">{{ ghost }}</span></div>
+        <div>Device: <span class="txt-gry">{{ dname }}</span></div>
+    </div>
+    <div style="margin-top: 25px;" id="graph1"><!-- Plotly chart will be drawn inside this DIV --></div>
+</div>
+
+
+{% endblock %}
+

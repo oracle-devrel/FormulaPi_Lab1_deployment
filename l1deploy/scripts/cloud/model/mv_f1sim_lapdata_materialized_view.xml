@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog 
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+	<changeSet id="811d8a2e864e224cf6242755014907a670f88426" author="(SIMDEV)-Generated" failOnError="false"    >
+		<n0:createSxmlObject objectName="MV_F1SIM_LAPDATA" objectType="MATERIALIZED_VIEW" ownerName="SIMDEV"   >
+			<n0:source><![CDATA[
+  <MATERIALIZED_VIEW xmlns="http://xmlns.oracle.com/ku" version="1.0">
+   <SCHEMA>SIMDEV</SCHEMA>
+   <NAME>MV_F1SIM_LAPDATA</NAME>
+   <DEFAULT_COLLATION>USING_NLS_COMP</DEFAULT_COLLATION>
+   <PHYSICAL_PROPERTIES>
+      <HEAP_TABLE>
+         <SEGMENT_ATTRIBUTES>
+            <SEGMENT_CREATION_IMMEDIATE></SEGMENT_CREATION_IMMEDIATE>
+            <PCTFREE>10</PCTFREE>
+            <PCTUSED>40</PCTUSED>
+            <INITRANS>10</INITRANS>
+            <MAXTRANS>255</MAXTRANS>
+            <STORAGE>
+               <INITIAL>65536</INITIAL>
+               <NEXT>1048576</NEXT>
+               <MINEXTENTS>1</MINEXTENTS>
+               <MAXEXTENTS>2147483645</MAXEXTENTS>
+               <PCTINCREASE>0</PCTINCREASE>
+               <FREELISTS>1</FREELISTS>
+               <FREELIST_GROUPS>1</FREELIST_GROUPS>
+               <BUFFER_POOL>DEFAULT</BUFFER_POOL>
+               <FLASH_CACHE>DEFAULT</FLASH_CACHE>
+               <CELL_FLASH_CACHE>DEFAULT</CELL_FLASH_CACHE>
+            </STORAGE>
+            <TABLESPACE>DATA</TABLESPACE>
+            <LOGGING>Y</LOGGING>
+         </SEGMENT_ATTRIBUTES>
+         <COMPRESS>N</COMPRESS>
+      </HEAP_TABLE>
+   </PHYSICAL_PROPERTIES>
+   <PARALLEL>AUTOMATIC</PARALLEL>
+   <BUILD>IMMEDIATE</BUILD>
+   <INDEX_ATTRIBUTES>
+      <PCTFREE>10</PCTFREE>
+      <INITRANS>20</INITRANS>
+      <MAXTRANS>255</MAXTRANS>
+      <STORAGE>
+         <INITIAL>65536</INITIAL>
+         <NEXT>1048576</NEXT>
+         <MINEXTENTS>1</MINEXTENTS>
+         <MAXEXTENTS>2147483645</MAXEXTENTS>
+         <PCTINCREASE>0</PCTINCREASE>
+         <FREELISTS>1</FREELISTS>
+         <FREELIST_GROUPS>1</FREELIST_GROUPS>
+         <BUFFER_POOL>DEFAULT</BUFFER_POOL>
+         <FLASH_CACHE>DEFAULT</FLASH_CACHE>
+         <CELL_FLASH_CACHE>DEFAULT</CELL_FLASH_CACHE>
+      </STORAGE>
+      <TABLESPACE>DATA</TABLESPACE>
+   </INDEX_ATTRIBUTES>
+   <REFRESH>
+      <FAST></FAST>
+      <ON_STATEMENT></ON_STATEMENT>
+      <WITH_PRIMARY_KEY></WITH_PRIMARY_KEY>
+      <LOCAL_ROLLBACK_SEGMENT>
+         <DEFAULT></DEFAULT>
+      </LOCAL_ROLLBACK_SEGMENT>
+      <CONSTRAINTS>ENFORCED</CONSTRAINTS>
+   </REFRESH>
+   <QUERY_REWRITE></QUERY_REWRITE>
+   <SUBQUERY>SELECT l.id, l.created_on, ld.*
+FROM "F1SIM-LAPDATA" l, 
+     json_table(l.DATA, '$' ERROR on ERROR NULL ON EMPTY
+         COLUMNS (
+             m_gamehost  VARCHAR2(256) PATH '$.m_gamehost',
+             m_session   NUMBER PATH '$.m_session',
+             lap  NUMBER PATH '$.m_current_lap_num',
+             m_sector1_time_in_ms NUMBER PATH '$.m_sector1_time_in_ms',
+             m_sector2_time_in_ms NUMBER PATH '$.m_sector2_time_in_ms',
+             m_last_lap_time_in_ms NUMBER PATH '$.m_last_lap_time_in_ms',
+             m_current_lap_num     NUMBER PATH '$.m_current_lap_num'
+         ) 
+     ) ld</SUBQUERY>
+</MATERIALIZED_VIEW>]]></n0:source>
+		</n0:createSxmlObject>
+	</changeSet>
+</databaseChangeLog>

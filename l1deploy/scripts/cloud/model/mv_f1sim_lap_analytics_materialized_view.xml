@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog 
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+	<changeSet id="fc6dd3ec4c02b5ea9d560fd6ba886c9e49bae53d" author="(SIMDEV)-Generated" failOnError="false"    >
+		<n0:createSxmlObject objectName="MV_F1SIM_LAP_ANALYTICS" objectType="MATERIALIZED_VIEW" ownerName="SIMDEV"   >
+			<n0:source><![CDATA[
+  <MATERIALIZED_VIEW xmlns="http://xmlns.oracle.com/ku" version="1.0">
+   <SCHEMA>SIMDEV</SCHEMA>
+   <NAME>MV_F1SIM_LAP_ANALYTICS</NAME>
+   <DEFAULT_COLLATION>USING_NLS_COMP</DEFAULT_COLLATION>
+   <PHYSICAL_PROPERTIES>
+      <HEAP_TABLE>
+         <SEGMENT_ATTRIBUTES>
+            <SEGMENT_CREATION_DEFERRED></SEGMENT_CREATION_DEFERRED>
+            <PCTFREE>10</PCTFREE>
+            <PCTUSED>40</PCTUSED>
+            <INITRANS>10</INITRANS>
+            <MAXTRANS>255</MAXTRANS>
+            <TABLESPACE>DATA</TABLESPACE>
+            <LOGGING>Y</LOGGING>
+         </SEGMENT_ATTRIBUTES>
+         <COMPRESS>N</COMPRESS>
+      </HEAP_TABLE>
+   </PHYSICAL_PROPERTIES>
+   <BUILD>IMMEDIATE</BUILD>
+   <REFRESH>
+      <LOCAL_ROLLBACK_SEGMENT>
+         <DEFAULT></DEFAULT>
+      </LOCAL_ROLLBACK_SEGMENT>
+      <CONSTRAINTS>ENFORCED</CONSTRAINTS>
+   </REFRESH>
+   <SUBQUERY>select 
+   R.*, n.m_session m_session, n.m_gamehost gamehost, l.m_current_lap_num current_lap_num, n.m_frame frame, NUM_TO_TOD(n.m_timestamp) racetime, 
+   l.m_sector sector, l.m_last_lap_time_in_ms last_lap_time_in_ms,
+   t.m_speed speed, t.m_throttle throttle, t.m_steer steer, t.m_brake brake, t.m_gear gear, t.m_engineRPM engineRPM,
+   n.m_yaw yaw, n.m_pitch pitch, n.m_roll roll, n.m_worldPosX worldPosX, n.m_worldPosY worldPosY, n.m_worldPosZ worldPosZ, n.worldForwardDirX, n.worldForwardDirY, n.worldForwardDirZ, n.worldRightDirX, n.worldRightDirY, n.worldRightDirZ,
+   l.m_current_lap_time_in_ms current_lap_time_in_ms, l.m_sector1_time_in_ms sector1_time_in_ms, l.m_sector2_time_in_ms sector2_time_in_ms, l.m_lap_distance lap_distance, l.m_driver_status driver_status
+from F1_22RACERS R
+INNER JOIN vf1_motion n 
+  ON R.R_SESSION = n.M_SESSION AND R.R_GAMEHOST = n.m_GAMEHOST
+inner join vf1_lapdata l
+  on r.r_session = l.m_session and n.m_frame = l.m_frame
+INNER JOIN "F1SIM-LAPTIME" LT
+  ON R.R_SESSION = LT."DATA$m_session" AND l.m_current_lap_num = LT."DATA$lap_num"
+inner join vf1_telemetry t
+  on n.m_session = t.m_session and n.m_frame = t.m_frame
+where l.m_lap_distance > -1</SUBQUERY>
+</MATERIALIZED_VIEW>]]></n0:source>
+		</n0:createSxmlObject>
+	</changeSet>
+</databaseChangeLog>

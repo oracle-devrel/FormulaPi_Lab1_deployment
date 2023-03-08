@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog 
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+	<changeSet id="e45f845914f8ecc96d86218b912912963ce7cecd" author="(SIMDEV)-Generated" failOnError="false"    >
+		<n0:createOracleTrigger objectName="F1_22RACERS_T1" objectType="TRIGGER" ownerName="ANZIOT"   >
+			<n0:source><![CDATA[
+  CREATE OR REPLACE EDITIONABLE TRIGGER "F1_22RACERS_T1" 
+AFTER
+insert on "F1_22RACERS"
+for each row
+begin
+UPDATE "F1SIM_GAMEHOST_DS" O
+SET "RACETIME" = :NEW.R_LAST_UPDATED,
+    "SESSION_START_TIME" = :NEW.R_LAST_UPDATED,
+    "R_SESSION" = :NEW.R_SESSION,
+    "R_EMAIL" = :NEW.R_EMAIL,
+    "NAME" = :NEW.R_NAME,
+    "R_TRACKID" = :NEW.R_TRACKID,
+    "R_GAMEHOST" = :NEW.R_GAMEHOST,
+    "R_FAV_TEAM" = :NEW.R_FAV_TEAM,
+    "R_STATUS" = :NEW.R_STATUS
+WHERE O."SESSION_IDENTIFIER" = :NEW.R_SESSION
+  AND O."R_SESSION" IS NULL;
+end;
+
+/
+ALTER TRIGGER "F1_22RACERS_T1" ENABLE]]></n0:source>
+		</n0:createOracleTrigger>
+	</changeSet>
+</databaseChangeLog>

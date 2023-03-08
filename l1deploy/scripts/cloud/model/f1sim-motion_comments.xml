@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog 
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+	<changeSet id="bccdee6ed4537a207b20eebdd668657a123535fb" author="(SIMDEV)-Generated" failOnError="false"    >
+		<n0:createOracleComment objectName="F1SIM-MOTION_comments" objectType="COMMENT" ownerName="SIMDEV" sourceType="STRING"  >
+			<n0:source><![CDATA[
+   COMMENT ON COLUMN "F1SIM-MOTION"."DATA$m_yaw" IS 'DATA dg';
+   COMMENT ON COLUMN "F1SIM-MOTION"."DATA$m_roll" IS 'DATA dg';
+   COMMENT ON COLUMN "F1SIM-MOTION"."DATA$m_frame" IS 'DATA dg';
+   COMMENT ON COLUMN "F1SIM-MOTION"."DATA$m_pitch" IS 'DATA dg';
+   COMMENT ON COLUMN "F1SIM-MOTION"."DATA$m_session" IS 'DATA dg';
+   COMMENT ON COLUMN "F1SIM-MOTION"."DATA$m_gamehost" IS 'DATA dg';
+   COMMENT ON COLUMN "F1SIM-MOTION"."DATA$m_timestamp" IS 'DATA dg';
+   COMMENT ON COLUMN "F1SIM-MOTION"."DATA$m_worldPosX" IS 'DATA dg';
+   COMMENT ON COLUMN "F1SIM-MOTION"."DATA$m_worldPosY" IS 'DATA dg';
+   COMMENT ON COLUMN "F1SIM-MOTION"."DATA$m_worldPosZ" IS 'DATA dg';
+   COMMENT ON COLUMN "F1SIM-MOTION"."DATA$worldRightDirX" IS 'DATA dg';
+   COMMENT ON COLUMN "F1SIM-MOTION"."DATA$worldRightDirY" IS 'DATA dg';
+   COMMENT ON COLUMN "F1SIM-MOTION"."DATA$worldRightDirZ" IS 'DATA dg';
+   COMMENT ON COLUMN "F1SIM-MOTION"."DATA$worldForwardDirX" IS 'DATA dg';
+   COMMENT ON COLUMN "F1SIM-MOTION"."DATA$worldForwardDirY" IS 'DATA dg';
+   COMMENT ON COLUMN "F1SIM-MOTION"."DATA$worldForwardDirZ" IS 'DATA dg';
+   COMMENT ON COLUMN "F1SIM-MOTION"."DATA$m_front_wheels_angle" IS 'DATA dg';]]></n0:source>
+		</n0:createOracleComment>
+	</changeSet>
+</databaseChangeLog>

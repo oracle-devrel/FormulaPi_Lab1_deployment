@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog 
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+	<changeSet id="0e877f2452d04b7dd9e0eb0dccc35f6e9a96b841" author="(SIMDEV)-Generated" failOnError="false"    >
+		<n0:createSxmlObject objectName="F1SIM-MOTION" objectType="TABLE" ownerName="SIMDEV"   >
+			<n0:source><![CDATA[
+  <TABLE xmlns="http://xmlns.oracle.com/ku" version="1.0">
+   <SCHEMA>SIMDEV</SCHEMA>
+   <NAME>F1SIM-MOTION</NAME>
+   <RELATIONAL_TABLE>
+      <COL_LIST>
+         <COL_LIST_ITEM>
+            <NAME>ID</NAME>
+            <DATATYPE>VARCHAR2</DATATYPE>
+            <LENGTH>255</LENGTH>
+            <COLLATE_NAME>USING_NLS_COMP</COLLATE_NAME>
+         </COL_LIST_ITEM>
+         <COL_LIST_ITEM>
+            <NAME>CREATED_ON</NAME>
+            <DATATYPE>TIMESTAMP</DATATYPE>
+            <SCALE>6</SCALE>
+            <DEFAULT>sys_extract_utc(SYSTIMESTAMP)</DEFAULT>
+         </COL_LIST_ITEM>
+         <COL_LIST_ITEM>
+            <NAME>DATA</NAME>
+            <DATATYPE>BLOB</DATATYPE>
+            <NOT_NULL></NOT_NULL>
+         </COL_LIST_ITEM>
+         <COL_LIST_ITEM>
+            <NAME>DATA$m_yaw</NAME>
+            <DATATYPE>NUMBER</DATATYPE>
+            <VIRTUAL>JSON_VALUE("DATA" FORMAT JSON , '$.m_yaw' RETURNING NUMBER DISALLOW TO NUMBER CONVERSION NULL ON ERROR)</VIRTUAL>
+         </COL_LIST_ITEM>
+         <COL_LIST_ITEM>
+            <NAME>DATA$m_roll</NAME>
+            <DATATYPE>NUMBER</DATATYPE>
+            <VIRTUAL>JSON_VALUE("DATA" FORMAT JSON , '$.m_roll' RETURNING NUMBER DISALLOW TO NUMBER CONVERSION NULL ON ERROR)</VIRTUAL>
+         </COL_LIST_ITEM>
+         <COL_LIST_ITEM>
+            <NAME>DATA$m_frame</NAME>
+            <DATATYPE>NUMBER</DATATYPE>
+            <VIRTUAL>JSON_VALUE("DATA" FORMAT JSON , '$.m_frame' RETURNING NUMBER DISALLOW TO NUMBER CONVERSION NULL ON ERROR)</VIRTUAL>
+         </COL_LIST_ITEM>
+         <COL_LIST_ITEM>
+            <NAME>DATA$m_pitch</NAME>
+            <DATATYPE>NUMBER</DATATYPE>
+            <VIRTUAL>JSON_VALUE("DATA" FORMAT JSON , '$.m_pitch' RETURNING NUMBER DISALLOW TO NUMBER CONVERSION NULL ON ERROR)</VIRTUAL>
+         </COL_LIST_ITEM>
+         <COL_LIST_ITEM>
+            <NAME>DATA$m_session</NAME>
+            <DATATYPE>VARCHAR2</DATATYPE>
+            <LENGTH>32</LENGTH>
+            <COLLATE_NAME>USING_NLS_COMP</COLLATE_NAME>
+            <VIRTUAL>JSON_VALUE("DATA" FORMAT JSON , '$.m_session' RETURNING VARCHAR2(32) NULL ON ERROR)</VIRTUAL>
+         </COL_LIST_ITEM>
+         <COL_LIST_ITEM>
+            <NAME>DATA$m_gamehost</NAME>
+            <DATATYPE>VARCHAR2</DATATYPE>
+            <LENGTH>32</LENGTH>
+            <COLLATE_NAME>USING_NLS_COMP</COLLATE_NAME>
+            <VIRTUAL>JSON_VALUE("DATA" FORMAT JSON , '$.m_gamehost' RETURNING VARCHAR2(32) NULL ON ERROR)</VIRTUAL>
+         </COL_LIST_ITEM>
+         <COL_LIST_ITEM>
+            <NAME>DATA$m_timestamp</NAME>
+            <DATATYPE>NUMBER</DATATYPE>
+            <VIRTUAL>JSON_VALUE("DATA" FORMAT JSON , '$.m_timestamp' RETURNING NUMBER DISALLOW TO NUMBER CONVERSION NULL ON ERROR)</VIRTUAL>
+         </COL_LIST_ITEM>
+         <COL_LIST_ITEM>
+            <NAME>DATA$m_worldPosX</NAME>
+            <DATATYPE>NUMBER</DATATYPE>
+            <VIRTUAL>JSON_VALUE("DATA" FORMAT JSON , '$.m_worldPosX' RETURNING NUMBER DISALLOW TO NUMBER CONVERSION NULL ON ERROR)</VIRTUAL>
+         </COL_LIST_ITEM>
+         <COL_LIST_ITEM>
+            <NAME>DATA$m_worldPosY</NAME>
+            <DATATYPE>NUMBER</DATATYPE>
+            <VIRTUAL>JSON_VALUE("DATA" FORMAT JSON , '$.m_worldPosY' RETURNING NUMBER DISALLOW TO NUMBER CONVERSION NULL ON ERROR)</VIRTUAL>
+         </COL_LIST_ITEM>
+         <COL_LIST_ITEM>
+            <NAME>DATA$m_worldPosZ</NAME>
+            <DATATYPE>NUMBER</DATATYPE>
+            <VIRTUAL>JSON_VALUE("DATA" FORMAT JSON , '$.m_worldPosZ' RETURNING NUMBER DISALLOW TO NUMBER CONVERSION NULL ON ERROR)</VIRTUAL>
+         </COL_LIST_ITEM>
+         <COL_LIST_ITEM>
+            <NAME>DATA$worldRightDirX</NAME>
+            <DATATYPE>NUMBER</DATATYPE>
+            <VIRTUAL>JSON_VALUE("DATA" FORMAT JSON , '$.worldRightDirX' RETURNING NUMBER DISALLOW TO NUMBER CONVERSION NULL ON ERROR)</VIRTUAL>
+         </COL_LIST_ITEM>
+         <COL_LIST_ITEM>
+            <NAME>DATA$worldRightDirY</NAME>
+            <DATATYPE>NUMBER</DATATYPE>
+            <VIRTUAL>JSON_VALUE("DATA" FORMAT JSON , '$.worldRightDirY' RETURNING NUMBER DISALLOW TO NUMBER CONVERSION NULL ON ERROR)</VIRTUAL>
+         </COL_LIST_ITEM>
+         <COL_LIST_ITEM>
+            <NAME>DATA$worldRightDirZ</NAME>
+            <DATATYPE>NUMBER</DATATYPE>
+            <VIRTUAL>JSON_VALUE("DATA" FORMAT JSON , '$.worldRightDirZ' RETURNING NUMBER DISALLOW TO NUMBER CONVERSION NULL ON ERROR)</VIRTUAL>
+         </COL_LIST_ITEM>
+         <COL_LIST_ITEM>
+            <NAME>DATA$worldForwardDirX</NAME>
+            <DATATYPE>NUMBER</DATATYPE>
+            <VIRTUAL>JSON_VALUE("DATA" FORMAT JSON , '$.worldForwardDirX' RETURNING NUMBER DISALLOW TO NUMBER CONVERSION NULL ON ERROR)</VIRTUAL>
+         </COL_LIST_ITEM>
+         <COL_LIST_ITEM>
+            <NAME>DATA$worldForwardDirY</NAME>
+            <DATATYPE>NUMBER</DATATYPE>
+            <VIRTUAL>JSON_VALUE("DATA" FORMAT JSON , '$.worldForwardDirY' RETURNING NUMBER DISALLOW TO NUMBER CONVERSION NULL ON ERROR)</VIRTUAL>
+         </COL_LIST_ITEM>
+         <COL_LIST_ITEM>
+            <NAME>DATA$worldForwardDirZ</NAME>
+            <DATATYPE>NUMBER</DATATYPE>
+            <VIRTUAL>JSON_VALUE("DATA" FORMAT JSON , '$.worldForwardDirZ' RETURNING NUMBER DISALLOW TO NUMBER CONVERSION NULL ON ERROR)</VIRTUAL>
+         </COL_LIST_ITEM>
+         <COL_LIST_ITEM>
+            <NAME>DATA$m_front_wheels_angle</NAME>
+            <DATATYPE>NUMBER</DATATYPE>
+            <VIRTUAL>JSON_VALUE("DATA" FORMAT JSON , '$.m_front_wheels_angle' RETURNING NUMBER DISALLOW TO NUMBER CONVERSION NULL ON ERROR)</VIRTUAL>
+         </COL_LIST_ITEM>
+      </COL_LIST>
+      <CHECK_CONSTRAINT_LIST>
+         <CHECK_CONSTRAINT_LIST_ITEM>
+            <NAME>MOTION_DATA_JSON</NAME>
+            <CONDITION> DATA is json </CONDITION>
+         </CHECK_CONSTRAINT_LIST_ITEM>
+      </CHECK_CONSTRAINT_LIST>
+      <DEFAULT_COLLATION>USING_NLS_COMP</DEFAULT_COLLATION>
+      <PHYSICAL_PROPERTIES>
+         <HEAP_TABLE>
+            <SEGMENT_ATTRIBUTES>
+               <SEGMENT_CREATION_DEFERRED></SEGMENT_CREATION_DEFERRED>
+               <PCTFREE>10</PCTFREE>
+               <PCTUSED>40</PCTUSED>
+               <INITRANS>10</INITRANS>
+               <MAXTRANS>255</MAXTRANS>
+               <TABLESPACE>DATA</TABLESPACE>
+               <LOGGING>Y</LOGGING>
+            </SEGMENT_ATTRIBUTES>
+            <COMPRESS>N</COMPRESS>
+         </HEAP_TABLE>
+      </PHYSICAL_PROPERTIES>
+      <TABLE_PROPERTIES>
+         <COLUMN_PROPERTIES>
+            <COL_LIST>
+               <COL_LIST_ITEM>
+                  <NAME>DATA</NAME>
+                  <DATATYPE>BLOB</DATATYPE>
+                  <LOB_PROPERTIES>
+                     <STORAGE_TABLE>
+                        <TABLESPACE>DATA</TABLESPACE>
+                        <SECUREFILE></SECUREFILE>
+                        <STORAGE_IN_ROW></STORAGE_IN_ROW>
+                        <CHUNK>8192</CHUNK>
+                        <CACHE>Y</CACHE>
+                        <VALIDATE>N</VALIDATE>
+                     </STORAGE_TABLE>
+                  </LOB_PROPERTIES>
+               </COL_LIST_ITEM>
+            </COL_LIST>
+         </COLUMN_PROPERTIES>
+      </TABLE_PROPERTIES>
+   </RELATIONAL_TABLE>
+</TABLE>]]></n0:source>
+		</n0:createSxmlObject>
+	</changeSet>
+</databaseChangeLog>

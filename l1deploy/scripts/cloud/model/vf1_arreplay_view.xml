@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog 
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+	<changeSet id="bf12c54fab9eea947a9ca54953eedf40d72beb08" author="(SIMDEV)-Generated" failOnError="false"    >
+		<n0:createSxmlObject objectName="VF1_ARREPLAY" objectType="VIEW" ownerName="SIMDEV"   >
+			<n0:source><![CDATA[
+  <VIEW xmlns="http://xmlns.oracle.com/ku" version="1.0">
+   <SCHEMA>SIMDEV</SCHEMA>
+   <NAME>VF1_ARREPLAY</NAME>
+   <DEFAULT_COLLATION>USING_NLS_COMP</DEFAULT_COLLATION>
+   <COL_LIST>
+      <COL_LIST_ITEM>
+         <NAME>TELEMETRY_m_session</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>TELEMETRY_m_frame</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>TELEMETRY_m_gamehost</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>TELEMETRY_m_engineRPM</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>MOTION_m_worldPosX</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>MOTION_m_worldPosY</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>MOTION_m_worldPosZ</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>MOTION_worldRightDirX</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>MOTION_worldRightDirY</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>MOTION_worldRightDirZ</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>MOTION_worldForwardDirX</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>MOTION_worldForwardDirY</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>MOTION_worldForwardDirZ</NAME>
+      </COL_LIST_ITEM>
+   </COL_LIST>
+   <SUBQUERY>SELECT
+    "F1SIM-TELEMETRY"."DATA$m_session"     AS "TELEMETRY_m_session",
+    "F1SIM-TELEMETRY"."DATA$m_frame"       AS "TELEMETRY_m_frame",
+    "F1SIM-TELEMETRY"."DATA$m_gamehost"    AS "TELEMETRY_m_gamehost",
+    "F1SIM-TELEMETRY"."DATA$m_engineRPM"   AS "TELEMETRY_m_engineRPM",
+    "F1SIM-MOTION"."DATA$m_worldPosX"      AS "MOTION_m_worldPosX",
+    "F1SIM-MOTION"."DATA$m_worldPosY"      AS "MOTION_m_worldPosY",
+    "F1SIM-MOTION"."DATA$m_worldPosZ"      AS "MOTION_m_worldPosZ",
+    "F1SIM-MOTION"."DATA$worldRightDirX"   AS "MOTION_worldRightDirX",
+    "F1SIM-MOTION"."DATA$worldRightDirY"   AS "MOTION_worldRightDirY",
+    "F1SIM-MOTION"."DATA$worldRightDirZ"   AS "MOTION_worldRightDirZ",
+    "F1SIM-MOTION"."DATA$worldForwardDirX" AS "MOTION_worldForwardDirX",
+    "F1SIM-MOTION"."DATA$worldForwardDirY" AS "MOTION_worldForwardDirY",
+    "F1SIM-MOTION"."DATA$worldForwardDirZ" AS "MOTION_worldForwardDirZ"
+FROM
+    "F1SIM-MOTION"    "F1SIM-MOTION",
+    "F1SIM-TELEMETRY" "F1SIM-TELEMETRY"
+WHERE
+        "F1SIM-TELEMETRY"."DATA$m_frame" = "F1SIM-MOTION"."DATA$m_frame"
+        and "F1SIM-MOTION"."DATA$m_session" = "F1SIM-TELEMETRY"."DATA$m_session"</SUBQUERY>
+</VIEW>]]></n0:source>
+		</n0:createSxmlObject>
+	</changeSet>
+</databaseChangeLog>

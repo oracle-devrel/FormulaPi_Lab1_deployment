@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog 
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+	<changeSet id="66a082d6edff508e6e47657e075d707f06345771" author="(SIMDEV)-Generated" failOnError="false"    >
+		<n0:createOracleComment objectName="F1SIM-LAPDATA_comments" objectType="COMMENT" ownerName="SIMDEV" sourceType="STRING"  >
+			<n0:source><![CDATA[
+   COMMENT ON COLUMN "F1SIM-LAPDATA"."DATA$m_frame" IS 'DATA dg';
+   COMMENT ON COLUMN "F1SIM-LAPDATA"."DATA$m_sector" IS 'DATA dg';
+   COMMENT ON COLUMN "F1SIM-LAPDATA"."DATA$m_session" IS 'DATA dg';
+   COMMENT ON COLUMN "F1SIM-LAPDATA"."DATA$m_gamehost" IS 'DATA dg';
+   COMMENT ON COLUMN "F1SIM-LAPDATA"."DATA$m_timestamp" IS 'DATA dg';
+   COMMENT ON COLUMN "F1SIM-LAPDATA"."DATA$m_lap_distance" IS 'DATA dg';
+   COMMENT ON COLUMN "F1SIM-LAPDATA"."DATA$m_driver_status" IS 'DATA dg';
+   COMMENT ON COLUMN "F1SIM-LAPDATA"."DATA$m_totalDistance" IS 'DATA dg';
+   COMMENT ON COLUMN "F1SIM-LAPDATA"."DATA$m_current_lap_num" IS 'DATA dg';
+   COMMENT ON COLUMN "F1SIM-LAPDATA"."DATA$m_sector1_time_in_ms" IS 'DATA dg';
+   COMMENT ON COLUMN "F1SIM-LAPDATA"."DATA$m_sector2_time_in_ms" IS 'DATA dg';
+   COMMENT ON COLUMN "F1SIM-LAPDATA"."DATA$m_last_lap_time_in_ms" IS 'DATA dg';
+   COMMENT ON COLUMN "F1SIM-LAPDATA"."DATA$m_current_lap_time_in_ms" IS 'DATA dg';
+   COMMENT ON COLUMN "F1SIM-LAPDATA"."DATA$hello" IS 'DATA dg';
+   COMMENT ON COLUMN "F1SIM-LAPDATA"."DATA$m_current_lap_invalid" IS 'DATA dg';]]></n0:source>
+		</n0:createOracleComment>
+	</changeSet>
+</databaseChangeLog>

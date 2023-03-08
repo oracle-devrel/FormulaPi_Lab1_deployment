@@ -1,0 +1,15 @@
+[Unit]
+Description=F1Sim Consumer
+After=network.target network-online.target rabbitmq-server.service sshd.service
+Wants=network-online.target
+ 
+[Service]
+ExecStart=<F1SIM_HOME>/bin/run_consumer.sh
+WorkingDirectory=<F1SIM_HOME>
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+User=<USER>
+ 
+[Install]
+WantedBy=multi-user.target

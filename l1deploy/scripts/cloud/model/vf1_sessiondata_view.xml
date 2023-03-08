@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog 
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+	<changeSet id="1b1d61d2e1922758166a2fa993342038bd4a8faa" author="(SIMDEV)-Generated" failOnError="false"    >
+		<n0:createSxmlObject objectName="VF1_SESSIONDATA" objectType="VIEW" ownerName="SIMDEV"   >
+			<n0:source><![CDATA[
+  <VIEW xmlns="http://xmlns.oracle.com/ku" version="1.0">
+   <SCHEMA>SIMDEV</SCHEMA>
+   <NAME>VF1_SESSIONDATA</NAME>
+   <DEFAULT_COLLATION>USING_NLS_COMP</DEFAULT_COLLATION>
+   <COL_LIST>
+      <COL_LIST_ITEM>
+         <NAME>M_SESSION</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>LAP</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>START_FRAME</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>END_FRAME</NAME>
+      </COL_LIST_ITEM>
+   </COL_LIST>
+   <SUBQUERY>select DISTINCT M_SESSION, M_CURRENT_LAP_NUM lap,
+min(M_FRAME) OVER (PARTITION BY  M_SESSION, M_CURRENT_LAP_NUM) start_frame,
+max(M_FRAME) OVER (PARTITION BY  M_SESSION, M_CURRENT_LAP_NUM) end_frame
+
+from vf1_lapdata 
+ORDER BY M_SESSION, M_CURRENT_LAP_NUM</SUBQUERY>
+</VIEW>]]></n0:source>
+		</n0:createSxmlObject>
+	</changeSet>
+</databaseChangeLog>

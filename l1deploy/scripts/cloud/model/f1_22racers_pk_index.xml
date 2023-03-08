@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog 
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+	<changeSet id="07b448d209753f25010cf77c549d581ac9c40a31" author="(SIMDEV)-Generated" failOnError="false"    >
+		<n0:createSxmlObject objectName="F1_22RACERS_PK" objectType="INDEX" ownerName="ANZIOT"   >
+			<n0:source><![CDATA[
+  <INDEX xmlns="http://xmlns.oracle.com/ku" version="1.0">
+   <UNIQUE></UNIQUE>
+   <SCHEMA>ANZIOT</SCHEMA>
+   <NAME>F1_22RACERS_PK</NAME>
+   <TABLE_INDEX>
+      <ON_TABLE>
+         <SCHEMA>ANZIOT</SCHEMA>
+         <NAME>F1_22RACERS</NAME>
+      </ON_TABLE>
+      <COL_LIST>
+         <COL_LIST_ITEM>
+            <NAME>ID</NAME>
+         </COL_LIST_ITEM>
+      </COL_LIST>
+      <INDEX_ATTRIBUTES>
+         <PCTFREE>10</PCTFREE>
+         <INITRANS>20</INITRANS>
+         <MAXTRANS>255</MAXTRANS>
+         <TABLESPACE>DATA</TABLESPACE>
+         <LOGGING>Y</LOGGING>
+      </INDEX_ATTRIBUTES>
+   </TABLE_INDEX>
+</INDEX>]]></n0:source>
+		</n0:createSxmlObject>
+	</changeSet>
+</databaseChangeLog>

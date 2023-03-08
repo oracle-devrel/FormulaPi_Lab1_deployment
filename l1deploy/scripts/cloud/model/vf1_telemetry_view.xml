@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog 
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+	<changeSet id="2316f2c7053452b24093d3e6729309c17bb59060" author="(SIMDEV)-Generated" failOnError="false"    >
+		<n0:createSxmlObject objectName="VF1_TELEMETRY" objectType="VIEW" ownerName="SIMDEV"   >
+			<n0:source><![CDATA[
+  <VIEW xmlns="http://xmlns.oracle.com/ku" version="1.0">
+   <SCHEMA>SIMDEV</SCHEMA>
+   <NAME>VF1_TELEMETRY</NAME>
+   <DEFAULT_COLLATION>USING_NLS_COMP</DEFAULT_COLLATION>
+   <COL_LIST>
+      <COL_LIST_ITEM>
+         <NAME>M_SESSION</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>M_FRAME</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>M_SPEED</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>M_THROTTLE</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>M_STEER</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>M_BRAKE</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>M_GEAR</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>M_ENGINERPM</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>M_TIMESTAMP</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>M_GAMEHOST</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>M_ENGINE_TEMP</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>M_TYRE_TEMP_RL</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>M_TYRE_TEMP_RR</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>M_TYRE_TEMP_FL</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>M_TYRE_TEMP_FR</NAME>
+      </COL_LIST_ITEM>
+   </COL_LIST>
+   <SUBQUERY>select m_session,m_frame, m_speed, m_throttle, m_steer, m_brake, m_gear, m_engineRPM, m_timestamp, m_gamehost, m_engine_temperature, m_tyre_temp_rl, m_tyre_temp_rr, m_tyre_temp_fl, m_tyre_temp_fr
+      from (
+      select t."DATA$m_session" m_session, to_number(t."DATA$m_frame") m_frame,
+      to_number(t."DATA$m_engineRPM") m_engineRPM, to_number(t."DATA$m_brake") m_brake, to_number(t."DATA$m_timestamp") m_timestamp, 
+      to_number(t."DATA$m_throttle") m_throttle, to_number(t."DATA$m_steer") m_steer, to_number(t."DATA$m_speed") m_speed, 
+      to_number(t."DATA$m_gear") m_gear, t."DATA$m_gamehost" m_gamehost, NVL(t."DATA$m_engine_temperature",0) m_engine_temperature,
+      nvl(t.DATA.m_tyres_surface_temperature[0],0) m_tyre_temp_rl,
+      nvl(t.DATA.m_tyres_surface_temperature[1],0) m_tyre_temp_rr,
+      nvl(t.DATA.m_tyres_surface_temperature[2],0) m_tyre_temp_fl,
+      nvl(t.DATA.m_tyres_surface_temperature[3],0) m_tyre_temp_fr
+      from "F1SIM-TELEMETRY" t 
+      WHERE t."DATA$m_speed" is not null)</SUBQUERY>
+</VIEW>]]></n0:source>
+		</n0:createSxmlObject>
+	</changeSet>
+</databaseChangeLog>

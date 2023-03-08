@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog 
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+	<changeSet id="088e03d00bf7f4516b0c842445e5efcd0a31726d" author="(SIMDEV)-Generated" failOnError="false"    >
+		<n0:createOracleComment objectName="F1SIM-TELEMETRY_comments" objectType="COMMENT" ownerName="SIMDEV" sourceType="STRING"  >
+			<n0:source><![CDATA[
+   COMMENT ON COLUMN "F1SIM-TELEMETRY"."DATA$m_gear" IS 'DATA dg';
+   COMMENT ON COLUMN "F1SIM-TELEMETRY"."DATA$m_brake" IS 'DATA dg';
+   COMMENT ON COLUMN "F1SIM-TELEMETRY"."DATA$m_frame" IS 'DATA dg';
+   COMMENT ON COLUMN "F1SIM-TELEMETRY"."DATA$m_speed" IS 'DATA dg';
+   COMMENT ON COLUMN "F1SIM-TELEMETRY"."DATA$m_steer" IS 'DATA dg';
+   COMMENT ON COLUMN "F1SIM-TELEMETRY"."DATA$m_session" IS 'DATA dg';
+   COMMENT ON COLUMN "F1SIM-TELEMETRY"."DATA$m_gamehost" IS 'DATA dg';
+   COMMENT ON COLUMN "F1SIM-TELEMETRY"."DATA$m_throttle" IS 'DATA dg';
+   COMMENT ON COLUMN "F1SIM-TELEMETRY"."DATA$m_engineRPM" IS 'DATA dg';
+   COMMENT ON COLUMN "F1SIM-TELEMETRY"."DATA$m_timestamp" IS 'DATA dg';
+   COMMENT ON COLUMN "F1SIM-TELEMETRY"."DATA$m_drs" IS 'DATA dg';
+   COMMENT ON COLUMN "F1SIM-TELEMETRY"."DATA$m_engine_temperature" IS 'DATA dg';]]></n0:source>
+		</n0:createOracleComment>
+	</changeSet>
+</databaseChangeLog>

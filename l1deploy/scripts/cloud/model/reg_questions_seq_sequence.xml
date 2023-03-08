@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog 
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+	<changeSet id="c93e220e0e343fba1e0d662318340cf813f9b944" author="(ANZIOT)-Generated" failOnError="false"    >
+		<n0:createSxmlObject objectName="REG_QUESTIONS_SEQ" objectType="SEQUENCE" ownerName="ANZIOT"   >
+			<n0:source><![CDATA[
+  <SEQUENCE xmlns="http://xmlns.oracle.com/ku" version="1.0">
+   <SCHEMA>ANZIOT</SCHEMA>
+   <NAME>REG_QUESTIONS_SEQ</NAME>
+   <START_WITH>41</START_WITH>
+   <INCREMENT>1</INCREMENT>
+   <MINVALUE>1</MINVALUE>
+   <MAXVALUE>9999999999999999999999999999</MAXVALUE>
+   <CACHE>20</CACHE>
+   <SCALE>NOSCALE</SCALE>
+</SEQUENCE>]]></n0:source>
+		</n0:createSxmlObject>
+	</changeSet>
+</databaseChangeLog>

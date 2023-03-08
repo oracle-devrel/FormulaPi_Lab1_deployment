@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog 
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+	<changeSet id="82cc1ed4cab670408f1387e1007a8b2800430c24" author="(SIMDEV)-Generated" failOnError="false"    >
+		<n0:createSxmlObject objectName="IDX_TELEMETRY_1" objectType="INDEX" ownerName="SIMDEV"   >
+			<n0:source><![CDATA[
+  <INDEX xmlns="http://xmlns.oracle.com/ku" version="1.0">
+   <SCHEMA>SIMDEV</SCHEMA>
+   <NAME>IDX_TELEMETRY_1</NAME>
+   <TABLE_INDEX>
+      <ON_TABLE>
+         <SCHEMA>SIMDEV</SCHEMA>
+         <NAME>F1SIM-TELEMETRY</NAME>
+      </ON_TABLE>
+      <COL_LIST>
+         <COL_LIST_ITEM>
+            <NAME>DATA</NAME>
+         </COL_LIST_ITEM>
+      </COL_LIST>
+      <DOMAIN_INDEX_PROPERTIES>
+         <INDEXTYPE>
+            <SCHEMA>CTXSYS</SCHEMA>
+            <NAME>CONTEXT_V2</NAME>
+         </INDEXTYPE>
+         <PARAMETERS>SIMPLIFIED_JSON SEARCH_ON NONE DATAGUIDE ON CHANGE ADD_VC</PARAMETERS>
+      </DOMAIN_INDEX_PROPERTIES>
+   </TABLE_INDEX>
+</INDEX>]]></n0:source>
+		</n0:createSxmlObject>
+	</changeSet>
+</databaseChangeLog>

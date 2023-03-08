@@ -1,0 +1,6 @@
+GIT_REPO=f1-simulator-cloud
+GIT_BRANCH=main
+GIT_SUMMARY=commit 83a9e809ba82819b76a6c7c91625cc357d039bb9 Merge: 09000f2 16fabc3 Author: Jason Lowe <jason.lowe@oracle.com> Date: Wed Nov 9 21:41:22 2022 +0000 Merge-Request: 182 from 'prod' into 'main'
+BUILD_ID=2022-11-09_21-50-35
+BUILD_NUMBER=18
+TAG=v4_0_0

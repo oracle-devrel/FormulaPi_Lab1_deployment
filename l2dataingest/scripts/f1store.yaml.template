@@ -1,0 +1,56 @@
+gamehost: tf
+devicename: default
+version: 2022
+
+# store: [none | oracledb | local | rabbitmq]
+# use none value for the store config if not wanting to save the data (but have an end-point and console debugging only)
+# use rabbitmq value for the store config if wanting to introduce Store And Forward
+store: rabbitmq
+# forward: [none | oracledb | local]
+# use none value for the forward config if not wanting to save the data directly
+# otherwise will read from rabbitmq (only) and forward to oracledb or local
+forward: oracledb
+save: true
+filter: true
+
+rabbitmq:
+  fullclassname: f1sim_rabbitmq.RabbitMQProducer
+  properties:
+    host: "localhost"
+    rmqusername: "opc"
+    rmqpassword: "oracle"
+    #rmqusername: "<RMQ_USER>"
+    #rmqpassword: "<RMQ_PASS>"
+    lapdata_info: "lap"
+    laptimedata_info: "laptime"
+    sessiondata_info: "session"
+    telemetrydata_info: "telemetry"
+    motiondata_info: "motion"
+    testdata_info: "test"
+
+oracledb:
+  fullclassname: f1sim_oracledb.OracleDatabaseConnection
+  properties:
+    dbusername: "<dbusername>"
+    dbpassword: "<dbpassword>"
+    dburl: "<dburl_dns>"
+    poolsize: 4
+    lapdata_info: "BEGIN insert INTO \"F1SIM-LAPDATA\" (ID, \"DATA\") VALUES (SYS_GUID(), :body); END;"
+    sessiondata_info: "BEGIN insert INTO \"F1SIM-SESSION\" (ID, CREATED_ON, VERSION, DATA) VALUES (SYS_GUID(), SYSTIMESTAMP, '0.1', :body); END;"
+    telemetrydata_info: "BEGIN insert INTO \"F1SIM-TELEMETRY\" (ID, \"DATA\") VALUES (SYS_GUID(), :body); END;"
+    motiondata_info: "BEGIN insert INTO \"F1SIM-MOTION\" (ID, DATA) VALUES (SYS_GUID(), :body); END;"
+    testdata_info: "BEGIN INSERT INTO \"F1SIM-DEVICE\" (M_TIMESTAMP, M_GAMEHOST, M_DEVICENAME, M_DEVICEIP) SELECT to_timestamp('1970-01-01 00','yyyy-mm-dd hh24') + to_number(JSON_VALUE(:body, '$.m_timestamp'))/1000/60/60/24, JSON_VALUE(:body, '$.m_gamehost'), JSON_VALUE(:body, '$.m_devicename'), JSON_VALUE(:body, '$.m_deviceip') FROM DUAL; exception when dup_val_on_index then UPDATE \"F1SIM-DEVICE\" set M_TIMESTAMP = to_timestamp('1970-01-01 00','yyyy-mm-dd hh24') + to_number(JSON_VALUE(:body, '$.m_timestamp'))/1000/60/60/24, M_DEVICEIP = JSON_VALUE(:body, '$.m_deviceip') where M_GAMEHOST = JSON_VALUE(:body, '$.m_gamehost') and M_DEVICENAME = JSON_VALUE(:body, '$.m_devicename'); END;"
+    laptimedata_info: "BEGIN insert INTO \"F1SIM-LAPTIME\" (ID, \"DATA\") VALUES (SYS_GUID(), :body); END;"
+
+local:
+  fullclassname: f1sim_local.FileWriter
+  properties:
+    # filetype supported either pickle or bytes
+    filetype: "pickle"
+    filedir: "test/data"
+    lapdata_info: "lap"
+    laptimedata_info: "laptime"
+    sessiondata_info: "session"
+    telemetrydata_info: "telemetry"
+    motiondata_info: "motion" 
+    testdata_info: "test"

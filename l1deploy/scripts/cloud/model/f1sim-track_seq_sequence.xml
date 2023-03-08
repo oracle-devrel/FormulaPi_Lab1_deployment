@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog 
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+	<changeSet id="d923408c4bd9b780a81b41706a37d064e5eefa21" author="(SIMDEV)-Generated" failOnError="false"    >
+		<n0:createSxmlObject objectName="F1SIM-TRACK_SEQ" objectType="SEQUENCE" ownerName="SIMDEV"   >
+			<n0:source><![CDATA[
+  <SEQUENCE xmlns="http://xmlns.oracle.com/ku" version="1.0">
+   <SCHEMA>SIMDEV</SCHEMA>
+   <NAME>F1SIM-TRACK_SEQ</NAME>
+   <START_WITH>101</START_WITH>
+   <INCREMENT>1</INCREMENT>
+   <MINVALUE>1</MINVALUE>
+   <MAXVALUE>9999999999999999999999999999</MAXVALUE>
+   <CACHE>20</CACHE>
+   <SCALE>NOSCALE</SCALE>
+</SEQUENCE>]]></n0:source>
+		</n0:createSxmlObject>
+	</changeSet>
+</databaseChangeLog>

@@ -1,0 +1,10 @@
+# F1 Environment Variables
+# Oracle Database Instant Client (Installation Directory)
+export ORACLE_HOME="<INSTANT CLIENT HOME>"
+export LD_LIBRARY_PATH="$ORACLE_HOME:$LD_LIBRARY_PATH"
+export PATH="$ORACLE_HOME:$PATH"
+export F1SIM_HOME="<F1SIM_HOME>"
+export PYTHONPATH="$F1SIM_HOME/lib:$PYTHONPATH"
+# Database Wallet Directory (as downloaded from an Autonomous Database)
+# Use TNS_ADMIN if wallet directory is different from $ORACLE_HOME/network/admin directory
+# export TNS_ADMIN="<WALLET DIRECTORY>"

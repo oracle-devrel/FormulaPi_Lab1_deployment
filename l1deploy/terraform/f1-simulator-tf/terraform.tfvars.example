@@ -1,0 +1,39 @@
+######################################################################################################
+# Identity and access parameters
+######################################################################################################
+api_fingerprint = "6a:34:06:d5:46:db:d8:a8:45:ce:45:dd:56:17:eb:f2"
+api_private_key_path = "~/.oci/oci_api_key.pem"
+region = "us-phoenix-1"
+home_region = "us-phoenix-1"
+tenancy_ocid = "ocid1.tenancy.oc1..aaaaaaaafknarrtzo5dlt6gcv7gmfzbf3vf5pm4vc2vyejuxpmgsaggodfja"
+user_ocid = "ocid1.user.oc1..aaaaaaaayhepogpjw3p65ul3k42xxfjo5megxz3uzodg2i3ef7g3sagtmiqa"
+compartment_ocid = "ocid1.compartment.oc1..aaaaaaaa2fk2dw6sdzg42slnaaevp6zzg3bgcmamxijppqiekpiveixsi2ja"
+
+######################################################################################################
+# General Configuration
+######################################################################################################
+package_baseurl = "https://apigw.withoracle.cloud/livelaps/rdm/packages/"
+package_install = "f1-simulator-cloud/f1-simulator-cloud-v4_0_0-17.tar.gz"
+customer_contacts = "demo@withoracle.cloud"
+INSTALL_HOME = ".local"
+
+######################################################################################################
+# Autonomous Datbase Configuration
+######################################################################################################
+ADB_NAME = "f1simdb"
+IS_FREE_TIER = false
+autonomous_database_type = "OLTP"
+autonomous_database_cpu_core_count = 1
+autonomous_database_data_storage_size_in_tbs = 1
+
+######################################################################################################
+# Database Application Configuration
+######################################################################################################
+ADMIN_PASSWORD = ""
+
+DB_USER = "java"
+DB_PASSWORD = ""
+DB_SCHEMA = "java"
+
+APEX_WORKSPACE = "java"
+
