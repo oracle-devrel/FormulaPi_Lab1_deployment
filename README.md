@@ -11,7 +11,7 @@ The hands-on lab will take you through the following steps:
 1. ***Lab 2*** - Setting up the Data Ingestion Engine
 1. ***Lab 3*** - Exploring Data in APEX
 
-![Architecture](~/../../l1deploy/images/architecture.png)
+![Architecture](l1deploy/images/architecture.png)
 
 Sample - Familiarity with Database is desirable, but not required  
 Some understanding of cloud and database terms is helpful  
