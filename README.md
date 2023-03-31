@@ -1,26 +1,17 @@
-# Low Code Development with Oracle Autonomous Database
+# Introduction
 
-## Welcome to the FormulaPi kit lab!<br>
+# Low Code eSports Analytics with Oracle Resource Manager and APEX 
 
-The Formula Pi Demo Kit is an experiential tool for our customers, partners, and employees to engage with a technology demonstration highlighting Oracle technology to solve a representative business problem many of our customers may be familiar with: real-time data capture with processing and visualization, and the ability to conduct deep post-hoc analysis on captured data to achieve deeper insights. This experience is offered as a part of our partnership with Oracle Red Bull Racing. The Demo Kit, involving an Oracle Red Bull Racing simulator station running the Electronic Arts F1 2022 video game, has stations available worldwide at customer visitor centers in Oracle offices, as well as touring at many live events and conferences including being featured in the Developer Hub at OCW 2022. Other platforms, including X-Box and PC, are also supported.
+## Welcome to first of the FormulaPi kit series!
+The Formula Pi Demo Kit is designed to provide a hands-on experience with Oracle technology. In this lab we will deploy our data ingestion and lowcode infrastructure through the UI, then we will configure our db connection and finally use css to personalise our front end dashboard.
 
-This lab will walk you through the following tasks:
-    -  Create an Autonomous Transaction Processing instance
-    -  Access APEX in the Oracle Cloud
-    -  Create an application from a file
-    -  Connect IOT device for data ingestion
-    -  Create and modify an APEX application
-    -  Generate test data i.e play a racing game
+## FormulaPi kit lab structure:
+The hands-on lab will take you through the following steps:
+1. ***Lab 1*** - Deploying Infrastructure with Resource Manager
+1. ***Lab 2*** - Setting up the Data Ingestion Engine
+1. ***Lab 3*** - Exploring Data in APEX
 
-Why is this workshop needed? Teach how to stream data into cloud db
-What products/technologies are used? APEX, ADW, Resource Manager, JAVA/Python
-Is there a primary Oracle product/technology being showcased? If so, what is it? APEX and ADW
-
-## FormulaPi kit lab structure:<br>
-    1. Lab 1 - Deploy Infrastructure with Resource Manager
-    2. Lab 2 - Data Ingestion Setup
-    3. Lab 3 - Exploring live data in APEX
-    4. Lab 4 - Generating test data
+![Architecture](~/../../l1deploy/images/architecture.png)
 
 Sample - Familiarity with Database is desirable, but not required  
 Some understanding of cloud and database terms is helpful  
