@@ -1,9 +1,9 @@
 # Introduction
 
-# Low Code Gaming Data Analytics with Oracle Resource Manager and APEX 
+# Low Code eSports Analytics with Oracle Resource Manager and APEX 
 
 ## Welcome to first of the FormulaPi kit series!
-The Formula Pi Demo Kit is designed to provide a hands-on experience with Oracle technology, demonstrating how it can be used to solve real-world business problems. This kit showcases a modern, on-demand, UDP Data Ingestion OCI console configurable stack that includes a Database, Networking, VM, and Messaging components.
+The Formula Pi Demo Kit is designed to provide a hands-on experience with Oracle technology. In this lab we will deploy our data ingestion and lowcode infrastructure through the UI, then we will configure our db connection and finally use css to personalise our front end dashboard.
 
 ## FormulaPi kit lab structure:
 The hands-on lab will take you through the following steps:
