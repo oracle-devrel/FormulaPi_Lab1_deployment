@@ -1,4 +1,4 @@
-# Data Ingestion Setup
+# Data Ingestion Configuration
 
 ## Introduction
 
@@ -27,19 +27,28 @@ For latest packet definition please visit [here](https://racinggames.gg/f1/f1-22
 ## Task 1: Log in to your VM via SSH
 
 1. In Cloud Console navigate to _Instance_ and _Compute_
-2. Check IP address
+2. Copy IP address
    ![instance](images/instance.png) 
 3. Log in using Cloud Shell or other ssh client
    
 ## Task 2: Data Ingestion configuration and authentication
-1. In terminal Run: `$F1SIM_HOME/bin/install_di.sh`
+1. In terminal Run:  
+      ```
+      <copy>$F1SIM_HOME/bin/install_di.sh</copy>
+      ```
     ![yaml](images/install.gif) 
 2. Add your Python version i.e. `3.9`
    ![yaml](images/python.gif) 
 3. Create RabbitMQ login and password (We will need them later)
    ![yaml](images/messaging.gif)
-4. Once completed duplicate ***f1store.yaml.template *** - `cp f1store.yaml.template f1store.yaml`
-5. Configure ***f1store.yaml*** with text editor like vim or nano - `vim f1store.yaml`
+4. Once completed duplicate ***f1store.yaml.template *** - 
+      ```
+      <copy>cp f1store.yaml.template f1store.yaml</copy>
+      ```
+5. Configure ***f1store.yaml*** with text editor like vim or nano 
+      ```
+      <copy>vim f1store.yaml</copy>
+      ```
 6. Add following to your .yaml config file:
    1.  ***gamehost*** - string
    2.  ***devicename*** - string
@@ -49,10 +58,18 @@ For latest packet definition please visit [here](https://racinggames.gg/f1/f1-22
     ![rabbit](images/rabbit.gif) 
    5.  ***dbusername*** - from your stack
    6.  ***dbpassword*** - from your stack 
-   7.  ***dburl*** in Cloud Shell Run `cat Wallet/tnsnames.ora`
+   7.  ***dburl*** in Cloud Shell Run 
+      ```
+      <copy>cat Wallet/tnsnames.ora</copy>
+      ```
     ![tns](images/tns.png) 
-7.  Run: `./bin/start.sh` to start services
+7.  Run:  to start services:
+      ```
+      <copy>./bin/start.sh</copy>
+      ```
    ![start](images/start.png) 
+
+You may now **proceed to the next lab**
 
 ## (Optional)Task 2: Setting up Edge Device
 
@@ -88,7 +105,10 @@ For latest packet definition please visit [here](https://racinggames.gg/f1/f1-22
 1. Git clone Data Ingestion engine to your Raspberry Pi from: https://git.opcvr.tech/esports/dataingestion
 2. Checkout to Pi Branch
 3. Download wallet (eg _Wallet_ATP.zip_) and copy wallet zip file into $F1SIM_HOME
-4. Run $F1SIM_HOME/bin/install_pi.sh
+4. Run 
+      ```
+      <copy>$F1SIM_HOME/bin/install_pi.sh</copy>
+      ```
 5. Input _rmqusername_ amd _rmqpassword_ - we will need them later
 6. Copy $F1SIM_HOME/f1store.yaml.template as $F1SIM_HOME/f1store.yaml
 7. Update f1store.yaml with Autonomous Database details from lab 1
@@ -105,18 +125,25 @@ Navigate to <raspberrypi IP address> in web browser or open localhost
 SSH to you Pi or open terminal on your raspberry pi
 
 1. To start UDP listener execute in terminal  
-`sudo systemctl start f1sim-producer`
+      ```
+      <copy>sudo systemctl start f1sim-producer</copy>
+      ```
 
 1. To start a Rabbit MQ consumer  
-`sudo systemctl start f1sim-consumer`
+      ```
+      <copy>sudo systemctl start f1sim-consumer</copy>
+      ```
 
 1. To start a flask-based web application to support the running of the F1 Simulator  
-`sudo systemctl start f1sim-webserver`
+      ```
+      <copy>sudo systemctl start f1sim-webserver</copy>
+      ```
 
 To Monitor and Manage RabbitMQ use following commands  
    `sudo rabbitmqctl list_queues` - to see how many messages on the _PacketData_ queue  
    `sudo rabbitmqctl purge_queue PacketData` - to delete messages on the _PacketData_ queue  
 Or connect to http://localhost:15672 (or remotely via the Pi's IP address), use your RMQ username / password to log into the management console
+
 
 ## Acknowledgements
  - **Author/Contributors** -  Stuart Coggins, Wojciech Pluta, Jason Lowe

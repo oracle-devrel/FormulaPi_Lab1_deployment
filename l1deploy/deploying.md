@@ -1,4 +1,4 @@
-# Introduction
+# Backend deployment with Oracle Resource Manager
 
 ## About this Workshop
 
@@ -7,7 +7,7 @@ In this workshop, we will focus on setting up the backend infrastructure for our
 ### Objectives
 In this workshop, you will learn how to:
 * Configure and deploy custom stack using Resource Manager
-* Execute the Liquibase in OCI Shell
+* (Optional) Execute the Liquibase in OCI Shell
 
 Estimated Workshop Time: 20 minutes
 
@@ -16,39 +16,39 @@ This lab assumes you have:
 * An Oracle account
 
 ## Task 1: Deploying Stack with Oracle Resource Manager
-###Logging into OCI Instance
-
-
 1. Log into your OCI instance.
-
 2. Click on the _hamburger menu_.
      ![Main](images/hamburger.png )
 1. Choose _Developer Resources_ from the list.
-     ![Developer Resources](images/devServices.png)
+     ![Developer Resources](images/devservices.png)
 2. Click on _Stacks_.
      ![OCI Stack](images/stacks.png)
 3. Click on _Create Stack_.
-     ![Create Stack](images/createStack.png)
+     ![Create Stack](images/createstack.png)
 4. Add your [Terraform stack](terraform/f1-simulator-tf.zip) file. Press _Next_ to continue.
 5. Add your SSH key
-![ssh](images/addSSH.png)
+![ssh](images/addssh.png)
 
-     You can generate one using following commands 
-     - cd to your .ssh folder for example:  `cd /home/user_name/.ssh/`
-     - `ssh-keygen -b 2048 -t rsa`
-     - Enter file in which to save the key ('/home/user_name/.ssh/id_rsa'): `dataingestion`
-     - run `cat dataingestion.pub`
+You can generate one using following commands  
+1. cd to your .ssh folder for example:  
+          `cd /home/user_name/.ssh/`
+          `ssh-keygen -b 2048 -t rsa`
+2. Enter file in which to save the key ('/home/user_name/.ssh/id_rsa'): _dataingestion_
+3. Run:  
+          `cat dataingestion.pub`
 
 
 ## Task 2: Configuring the Stack
 
 1. Review stack information, make any desired changes to users and passwords, then press _Next_.
-![Stack Configuration](images/stackConfig.gif)
+![Stack Configuration](images/stackconfig.gif)
 
 ## Task 3: Executing Plan/Apply
 
 1. Run the _Plan/Apply_.
-![Plan/Apply](images/runApply.gif)
+![Plan/Apply](images/runapply.gif)
+
+You may now **proceed to the next lab**
 
 
 ## (Optional Task) Intro for Liquibase
@@ -67,41 +67,39 @@ In summary, Liquibase is a powerful and versatile tool that simplifies the proce
 Cloud Shell
 Copy OCID of of the Authonomous db
 in Shell 
-```
-export ADBID =<paste your DBOCID here>
-```
+          ```
+          <copy>export ADBID =<paste your DBOCID here></copy>
+          ```
 
 Now set the name of the wallet as environment variable 
-```
-export WNAME=wallet.zip
-```
+          ```
+          <copy>export WNAME=wallet.zip</copy>
+          ```
 
 Lets now generate a wallet password as environment variable 
-```
-export WPWD=<add your password here>
-```
+          ```
+          <copy>export WPWD=<add your password here></copy>
+          ```
 
 lets run following to create a db connection with wallet and wallet password
-
-```
-oci db autonomous-database generate-wallet --autonomoud-database-id $ADBID --password $WPWD --file $WNAME
-```
+          ```
+          <copy>oci db autonomous-database generate-wallet --autonomous-database-id $ADBID --password $WPWD --file $WNAME</copy>
+          ```
 
 Finally, let connect to our db using
-```
-sql -cloudconfig $WNAME simuser@<dbname>_low 
-```
+          ```
+          <copy>sql -cloudconfig $WNAME simuser@<dbname>_low</copy>
+          ```
 
 To deploy the table, run the following command, specifying the path to the changelog file:
-
-```
-liquibase --changeLogFile=changelog.xml update
-```
+          ```
+          <copy>liquibase --changeLogFile=changelog.xml update</copy>
+          ```
 
 You can also use the liquibase status command to see the status of the schema at any time
-```
-liquibase --changeLogFile=changelog.xml status
-```
+          ```
+          <copy>liquibase --changeLogFile=changelog.xml status</copy>
+          ```
 
 ## Acknowledgements
  - **Author/Contributors** -  Stuart Coggins, Wojciech Pluta, Jason Lowe

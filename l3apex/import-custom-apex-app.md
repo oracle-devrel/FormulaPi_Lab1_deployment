@@ -1,5 +1,5 @@
 
-# Access APEX workspace and import custom app
+# Import and customize Oracle APEX app
 
 ## Introduction
 
@@ -7,23 +7,35 @@ Oracle Application Express (APEX) is a feature of Oracle Database, including the
 
 Estimated Time: 20 minutes
 
+### Objectives
+
+In this lab, you will learn how to:
+* Import APEX app
+* Use CSS to customize the look
+
+### Prerequisites
+This lab assumes you have:
+* An Oracle Cloud account
+* All previous labs successfully completed
+* APEX workspace login details
+
 ### What is an APEX Workspace?
 An APEX Workspace is a logical domain where you define APEX applications. Each workspace is associated with one or more database schemas (database users) which are used to store the database objects, such as tables, views, packages, and more. These database objects are generally what APEX applications are built on top of.
 
 ## Task 1: Install custom app in Oracle APEX
 
-1. Download "Formula-Pi" APEX app [files](files/APEXapps.zip)
+1. Download "Formula-Pi" APEX app [files](files/apexapps.zip)
 
-2. Click on _hamburger menu_ and select _APEX Workspaces_
-   ![](images/4backToHome.png)  
+2. Click on _hamburger menu_ and select _APEX Workspaces_  
+   ![Click on Hamburger Menu](images/4backToHome.png)  
         (optional) You can navigate to _APEX Workspaces_ from "DB Actions" homepage  
-        ![](images/5aAPEX.png " ")  
+        ![Click on APEX from DB actions](images/5aAPEX.png " ")  
         (optional) You can navigate to _APEX Workspaces_ from "Oracle Cloud Console"      
-        ![](images/5bAPEX.png " ")  
+        ![Click on APEX from Oracle Cloud Console](images/5bAPEX.png " ")  
 3. Log in to your Oracle APEX instance.  
-   ![](images/6APEXWorkspaceLogin.png " ")
+   ![APEX workspace login](images/6APEXWorkspaceLogin.png " ")
 4. Click _App Builder_ > _Import_  
-![importAppBuilder](images/4importAppBuilder.png)
+![import to AppBuilder](images/4importAppBuilder.png)
 1.  Drag and drop f199.sql into the dotted box
 ![Import Drag](images/4appImport.png)
 1.  Click _Next_ to import the file
@@ -35,9 +47,9 @@ An APEX Workspace is a logical domain where you define APEX applications. Each w
 
 ### Access your APEX app
 8.  Click _Run_ Application
-   ![runl](images/run.png)
+   ![Run Command](images/run.png)
 9.  Sign in as APEX user “F1_HOL”  
-![importInstall](images/5logIn.png)
+![Import and install](images/5logIn.png)
 1.  In the “Track” form field enter the name of the track that you have been racing on. This is the name of the track that the Game sets. Press Enter
 2.  A simple Leaderboard report is created  
 ![importInstall](images/5dashboardVanila.png)
@@ -58,16 +70,16 @@ The next section formats the Fields for display. Laptimes are in Milliseconds an
 ### Duplicate core App
 1. 	Click to Edit the Application from the App Builder page
 1. 	Click _Copy this Application_
-![importInstall](images/copyThisApplication.png)
+![Copy application](images/copyThisApplication.png)
 2. 	Add Name : ***Livelaps HOL+CSS***
 3. 	Click _Next_  
-![importInstall](images/copyApp.png)
+![Click next to copy application](images/copyApp.png)
 4. 	Click _Copy Application_  
-![importInstall](images/copyApplication.png)
+![Final click on copy application](images/copyApplication.png)
 1. 	New Application is loaded into the App Builder Edit Application Page
 ### Upload CSS files
 1. 	Click _Shared Components_
-![sharedComponents](images/sharedComponent.png)
+![Shared Components](images/sharedComponent.png)
 1. 	Click _Static Application Files_ under “Files and Reports”
 ![staticApplication](images/staticApplicationFiles.png)
 1. Click _Create File_
@@ -78,7 +90,7 @@ The next section formats the Fields for display. Laptimes are in Milliseconds an
 1. 	Repeat same process for “Livelaps HOL.css”
 ![staticApplication](images/liveLapsHOLCreated.png)
 1. Great Work! Note that APEX created ***MIN*** version of the Livelaps HOL css file.
-![staticApplication](images/staticApplicationFilesView.png)
+![staticApplicationFileView](images/staticApplicationFilesView.png)
 1. Please copy or make note of following two URL's - we will need them later.
    - ***apex-hol-min.css*** file. URL =`#APP_IMAGES#apex-font-min.css`
    - ***LiveLaps HOL.css*** file. URL = `#APP_FILES#Livelaps HOL.css`
@@ -131,7 +143,8 @@ Next, set the Page style to be our eSports theme (from inside the Livelaps HOL c
 To format the Leaderboard let's include CSS inside our SQL. We can use conditional formatting in the SELECT statement and use columns as CSS directives.
 1. Let’s update the SQL
 
-        SELECT DISTINCT RANK() OVER (ORDER BY lt) P,M_SESSION, M_LAP LAP, LT,session_rank, event_rank, driver_rank, short_driver,team,  
+        ```
+        <copy>SELECT DISTINCT RANK() OVER (ORDER BY lt) P,M_SESSION, M_LAP LAP, LT,session_rank, event_rank, driver_rank, short_driver,team,  
         to_char(extract(MINUTE FROM numtodsinterval(LT/1000, 'SECOND')), 'fm0') || ':' || to_char(extract(SECOND FROM numtodsinterval(LT/1000, 'SECOND')), 'fm00.000') lap_time_dsp,
         to_char(S1/1000, 999.999) S1, to_char(S2/1000, 999.999) S2, to_char(S3/1000, 999.999) S3,
         CASE WHEN (LT- (MIN(LT) OVER ()))  = 0 THEN  ''
@@ -167,20 +180,29 @@ To format the Leaderboard let's include CSS inside our SQL. We can use condition
         )
         --WHERE driver_rank =1 -- Add for only 1 record per driver (name)
         ORDER BY P
-        FETCH FIRST 20 ROWS ONLY;
+        FETCH FIRST 20 ROWS ONLY;</copy>
+        ```
 1. Click on _Leaderboard_ and paste above SQL statement into _Source_ > _SQL Query_ (Right hand side of your screen)
-![CSS Classes](images/sqlUpdate.png)  
+![Updated SQL](images/sqlUpdate.png)  
 1. 	Expand Leaderboard Region _Columns_  
-![CSS Classes](images/leaderboardObjects.png)  
+![Leaderboard Objects](images/leaderboardObjects.png)  
 1. 	Click _DRIVER_ column
 2. 	Scroll to Escape Special Characters under “Security” and switch OFF  
 ![Security](images/security.png)  
 1. 	Click _S1_ Column
-2. 	Scroll to HTML Expression under “Column Formatting” and use this code:  
-`<span class="laptime #S1_COL#">#S1#</span>`
-1. Repeat for _S2_ and _S3_ Columns
-- ***S2***: `<span class="laptime #S2_COL#">#S2#</span>`
-- ***S3***: `<span class="laptime #S3_COL#">#S3#</span>`  
+2. 	Scroll to HTML Expression under “Column Formatting” and use this code:
+        ```
+        <copy><span class="laptime #S1_COL#">#S1#</span></copy>
+        ```
+3. Repeat for _S2_ and _S3_ Columns  
+- ***S2***: 
+        ```
+        <copy><span class="laptime #S2_COL#">#S2#</span></copy>
+        ```
+- ***S3***:
+        ```
+        <copy><span class="laptime #S3_COL#">#S3#</span></copy>
+        ```  
     ![Column Formatting](images/columnFormatting.png)
 1. Click _Save_
    
