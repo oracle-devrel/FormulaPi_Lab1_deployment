@@ -1,5 +1,5 @@
 # Low Code eSports Analytics with Oracle Resource Manager and APEX 
-The Formula Pi Demo Kit is designed to provide a hands-on experience with Oracle technology. In this lab we will deploy our data ingestion and LOWCODE infrastructure through the UI, then we will configure our db connection and finally use CSS to personalize our front end dashboard.
+Looking to gain a hands-on experience with Oracle technology? Look no further than the Formula Pi Demo Kit. In this lab, you'll deploy data ingestion infrastructure and Lowcode app through the UI, configure your db connection, and personalize your front end dashboard using CSS. You'll also explore the use of Oracle's APEX tool to create a visually appealing and user-friendly interface for your eSports data. With its simplified development lifecycle and WYWASIG interface, APEX streamlines the development process, allowing you to focus on delivering a top-quality product that meets the needs of your users.
 
 ## FormulaPi kit lab structure:
 The hands-on lab will take you through the following steps:  

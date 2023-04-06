@@ -2,8 +2,9 @@
 # Import and customize Oracle APEX app
 
 ## Introduction
+In this section, we will be discussing the creation of a presentation layer for our eSports data. To accomplish this, we will be utilizing Oracle's Lowcode environment known as APEX. APEX is an extremely powerful tool that simplifies and accelerates the development lifecycle due to its What-You-Write-Is-What-You-Get (WYWASIG) interface.
 
-Oracle Application Express (APEX) is a feature of Oracle Database, including the Autonomous Data Warehouse (ADW) and Autonomous Transaction Processing (ATP) services. 
+Throughout this section, we will explore how to import an application into APEX and personalize it using CSS and SQL conditional formatting. This will allow us to create a visually appealing and user-friendly interface for our eSports data, making it easily accessible and understandable for anyone who needs to interact with it. With APEX, we can streamline the development process and focus on delivering a top-quality product that meets the needs of our users.
 
 Estimated Time: 20 minutes
 

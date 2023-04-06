@@ -2,7 +2,9 @@
 
 ## Introduction
 
-In this section we will review Data Ingestion application that was deployed with "Resource Manager" in previous lab. Optionally you can run Data Ingestion locally on an edge devices like Raspberry Pi.
+In this section we will review Data Ingestion application that was deployed with "Resource Manager" in previous lab. 
+
+Optionally you can run Data Ingestion locally on an edge devices like Raspberry Pi.
 
 Estimated Lab Time: 10 minutes
 
