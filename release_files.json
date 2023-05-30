@@ -1,3 +1,19 @@
-// see https://github.com/oracle-devrel/action-release-zip-maker for docs
 [
+    {
+        "action": "create_zip",
+        "file_name": "f1sim.zip",
+        "files": [
+          {
+            "src_pattern": "*.tf"
+          },
+          {
+            "src_pattern": "l1deploy/terraform/f1-simulator-tf/*.*",
+            "dst_path": "."
+          }
+        ]
+    },
+    {
+        "action": "upload_file",
+        "file_name": "f1sim.zip"
+    }
 ]

@@ -81,7 +81,7 @@ fi
 # temporary bug fix (to allow for previous incomplete apply)
 # issue related to unzip of the package configuration doesn't overwrite / allow for existing configuration
 # action is to remove SQL files that are unzipped
-if [ -e "${INSTALL_HOME}/application/*.sql" ]
-then
-    rm ${INSTALL_HOME}/application/*.sql
-fi
+# if [ -e "${INSTALL_HOME}/application/*.sql" ]
+# then
+#     rm ${INSTALL_HOME}/application/*.sql
+# fi

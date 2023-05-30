@@ -3,6 +3,7 @@
 while getopts 'd:h' flag; do
     case "${flag}" in
     d) INSTALL_HOME="$(realpath ${OPTARG})" ;;
+	v) VERSION="${OPTARG}" ;;
     *) print_usage
         exit 1 ;;
     esac
@@ -39,8 +40,8 @@ then
     then
         mkdir $(realpath ${INSTALL_HOME})/dist
     fi
-    wget -O $(realpath ${INSTALL_HOME})/dist/openjdk-11.0.2_${DOWNLOAD_PLATFORM}_bin.tar.gz https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_${DOWNLOAD_PLATFORM}_bin.tar.gz
-    tar xzvf $(realpath ${INSTALL_HOME})/dist/openjdk-11.0.2_${DOWNLOAD_PLATFORM}_bin.tar.gz --directory=$(realpath ${INSTALL_HOME})
+    wget -O $(realpath ${INSTALL_HOME})/dist/openjdk-${VERSION}_${DOWNLOAD_PLATFORM}_bin.tar.gz https://download.java.net/java/GA/jdk11/9/GPL/openjdk-${VERSION}_${DOWNLOAD_PLATFORM}_bin.tar.gz
+    tar xzvf $(realpath ${INSTALL_HOME})/dist/openjdk-${VERSION}_${DOWNLOAD_PLATFORM}_bin.tar.gz --directory=$(realpath ${INSTALL_HOME})
 else
     echo "Invalid OS version. Not supported."
     exit 255
