@@ -14,7 +14,7 @@
    <TABLE_INDEX>
       <ON_TABLE>
          <SCHEMA>SIMDEV</SCHEMA>
-         <NAME>F1SIM-LAPDATA</NAME>
+         <NAME>LAPDATA</NAME>
       </ON_TABLE>
       <COL_LIST>
          <COL_LIST_ITEM>

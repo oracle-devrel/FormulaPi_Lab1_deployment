@@ -14,7 +14,7 @@
    <TABLE_INDEX>
       <ON_TABLE>
          <SCHEMA>SIMDEV</SCHEMA>
-         <NAME>F1SIM-MOTION</NAME>
+         <NAME>MOTION</NAME>
       </ON_TABLE>
       <COL_LIST>
          <COL_LIST_ITEM>

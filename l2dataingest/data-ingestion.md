@@ -71,6 +71,17 @@ For latest packet definition please visit [here](https://racinggames.gg/f1/f1-22
       ```
    ![start](images/start.png) 
 
+### Task 3 - Adding test data
+$ cd test/data
+$ tar xzvf hol-data.tar.gz
+$ cd ../..
+$ . f1env.sh
+$ python3.9 test/main.py localhost test/data/miami
+
+
+
+
+
 You may now **proceed to the next lab**
 
 ## (Optional)Task 2: Setting up Edge Device

@@ -26,7 +26,7 @@ This lab assumes you have:
 
 You can generate one using following commands  
 1. cd to your .ssh folder for example:  
-          `cd /home/user_name/.ssh/`
+          `cd /home/user_name/.ssh/`  
           `ssh-keygen -b 2048 -t rsa`
 2. Enter file in which to save the key ('/home/user_name/.ssh/id_rsa'): _dataingestion_
 3. Run:  

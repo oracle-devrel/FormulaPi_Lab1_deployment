@@ -6,11 +6,11 @@
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
 	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
 	<changeSet id="4cb907040209cdece65f028a1141620d84d70e6c" author="(SIMDEV)-Generated" failOnError="false"    >
-		<n0:createSxmlObject objectName="F1SIM-LAPDATA" objectType="TABLE" ownerName="SIMDEV"   >
+		<n0:createSxmlObject objectName="LAPDATA" objectType="TABLE" ownerName="SIMDEV"   >
 			<n0:source><![CDATA[
   <TABLE xmlns="http://xmlns.oracle.com/ku" version="1.0">
    <SCHEMA>SIMDEV</SCHEMA>
-   <NAME>F1SIM-LAPDATA</NAME>
+   <NAME>LAPDATA</NAME>
    <RELATIONAL_TABLE>
       <COL_LIST>
          <COL_LIST_ITEM>

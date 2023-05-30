@@ -29,7 +29,7 @@
    <SUBQUERY>select DISTINCT l."DATA$m_session" m_session, l."DATA$m_current_lap_num" lap,
 MIN(l."DATA$m_frame") OVER (PARTITION BY l."DATA$m_session", l."DATA$m_current_lap_num" ORDER BY l."DATA$m_session", l."DATA$m_current_lap_num") startf,
 MAX(l."DATA$m_frame") OVER (PARTITION BY l."DATA$m_session", l."DATA$m_current_lap_num" ORDER BY l."DATA$m_session", l."DATA$m_current_lap_num") endf
-FROM "F1SIM-LAPDATA" l</SUBQUERY>
+FROM "LAPDATA" l</SUBQUERY>
 </VIEW>]]></n0:source>
 		</n0:createSxmlObject>
 	</changeSet>
