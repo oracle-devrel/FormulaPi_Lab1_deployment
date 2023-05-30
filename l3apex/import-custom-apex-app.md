@@ -25,25 +25,20 @@ An APEX Workspace is a logical domain where you define APEX applications. Each w
 
 ## Task 1: Install custom app in Oracle APEX
 
-1. Download "Formula-Pi" APEX app [files](files/apexapps.zip)
-
-2. Click on _hamburger menu_ and select _APEX Workspaces_  
-   ![Click on Hamburger Menu](images/4backToHome.png)  
-        (optional) You can navigate to _APEX Workspaces_ from "DB Actions" homepage  
-        ![Click on APEX from DB actions](images/5aAPEX.png " ")  
-        (optional) You can navigate to _APEX Workspaces_ from "Oracle Cloud Console"      
-        ![Click on APEX from Oracle Cloud Console](images/5bAPEX.png " ")  
+1. Download "Formula-Pi" APEX app [files](https://git.opcvr.tech/esports/dataingestion/-/raw/main/apexfiles/apexapps.zip?inline=false)
+2. From Resource Manager Output copy APEX direct link and past the URL in your browser  
+    ![APEX Resource Manager Output URL](images/orm-apex-url.png)
 3. Log in to your Oracle APEX instance.  
-   ![APEX workspace login](images/6APEXWorkspaceLogin.png " ")
+   ![APEX workspace login](images/6APEXWorkspaceLogin.png)
 4. Click _App Builder_ > _Import_  
 ![import to AppBuilder](images/4importAppBuilder.png)
 1.  Drag and drop f199.sql into the dotted box
 ![Import Drag](images/4appImport.png)
 1.  Click _Next_ to import the file
  ![Import Step](images/importStep.png)  
-2.  Click _Next_ for install options
-3.  Leave all others as default
-4.  Click _Install Application_
+1.  Click _Next_ for install options
+2.  Leave all others as default
+3.  Click _Install Application_
    ![Import Install](images/4importInstall.png)
 
 ### Access your APEX app
@@ -207,7 +202,7 @@ To format the Leaderboard let's include CSS inside our SQL. We can use condition
     ![Column Formatting](images/columnFormatting.png)
 1. Click _Save_
    
-We don’t need all the columns in our Leaderboard, so go ahead and Hide (or delete) the following:  
+We don’t need all the columns in our Leaderboard, so go ahead and hide the following:  
     - Hide LT and Team  
     - Hide "S1_COL", "S2_COL", "S3_COL"  
     ![Hiding Column](images/hide.png)  
@@ -216,7 +211,7 @@ You can re-run your Leaderboard App to see what progress you made! ***Don’t fo
 
 
 
-## Task 6: Tidy up - Let's get rid of the Gridline. 
+## Task 7: Tidy up - Let's get rid of the Gridline. 
 1. From the Edit Application in the App Builder page
 2. 	Select Page _1 – Home_ to open in Edit Mode
 ![Reference URL](images/appHome1-Home.png)

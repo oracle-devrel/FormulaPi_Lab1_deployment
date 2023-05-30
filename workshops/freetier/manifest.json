@@ -1,0 +1,33 @@
+{
+  "workshoptitle": "OCI Multiplayer Workshop",
+  "help": "livelabs-help-db_us@oracle.com",
+  "tutorials": [
+    {
+      "title": "Low Code eSports Analytics with Oracle Resource Manager and APEX",
+      "description": "Formula Pi",
+      "filename": "../../introduction/introduction.md"
+    },
+    {
+      "title": "Get Started",
+      "description": "Prerequisites for LiveLabs (Oracle-owned tenancies). The title of the lab and the Contents Menu title (the title above) match for Prerequisite lab. This lab is always first.",
+      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/cloud-login.md"
+    },
+    {
+      "title": "Lab 1: Backend deployment with Oracle Resource Manager",
+      "filename": "../../l1deploy/deploying.md"
+    },
+    {
+      "title": "Lab 2: Data Ingestion Configuration",
+      "filename": "../../l2dataingest/data-ingestion.md"
+    },
+    {
+      "title": "Lab 3: Import and customize Oracle APEX app",
+      "filename": "../../l3apex/import-custom-apex-app.md"
+    },
+    {
+      "title": "Need Help?",
+      "description": "Solutions to Common Problems and Directions for Receiving Live Help",
+      "filename": "https://oracle-livelabs.github.io/common/labs/need-help/need-help-freetier.md"
+    }
+  ]
+}

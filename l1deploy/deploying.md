@@ -16,16 +16,11 @@ This lab assumes you have:
 * An Oracle account
 
 ## Task 1: Deploying Stack with Oracle Resource Manager
-1. Log into your OCI instance.
-2. Click on the _hamburger menu_.
-     ![Main](images/hamburger.png )
-1. Choose _Developer Resources_ from the list.
-     ![Developer Resources](images/devservices.png)
-2. Click on _Stacks_.
-     ![OCI Stack](images/stacks.png)
-3. Click on _Create Stack_.
-     ![Create Stack](images/createstack.png)
-4. Add your [Terraform stack](terraform/f1-simulator-tf.zip) file. Press _Next_ to continue.
+
+1. Click [![Deploy to Oracle Cloud](https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg)](https://cloud.oracle.com/resourcemanager/stacks/create?region=home&zipUrl=https://github.com/oracle-devrel/FormulaPi_Lab1_deployment/releases/download/v1.0/f1-simulator-tf.zip)
+
+   If you aren't already signed in, when prompted, enter the tenancy and user credentials.
+
 5. Add your SSH key
 ![ssh](images/addssh.png)
 

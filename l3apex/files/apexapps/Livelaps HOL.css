@@ -1,0 +1,319 @@
+:root {
+    --f1-warm-red: #ff1e00;
+    --f1-carbon-black: #15151e;
+    --f1-off-white: #f7f4f1;
+    --f1-background: #1b1b1b;
+    --f1-background-alt: #3f3f3f;
+    --f1-hivis-white: #ffffff;
+    --f1-timing-rbr: #0000EB;
+    --f1-timing-amg: #1ac1b1;
+    --f1-timing-mcl: #fd8609;
+    --f1-timing-fri: #d10009;
+    --f1-timing-ast: #0b5e4f;
+    --f1-timing-trs: #21354f;
+    --f1-timing-alf: #7c0001;
+    --f1-timing-alp: #0e79ff;
+    --f1-timing-has: #ffffff;
+    --f1-timing-wil: #0000A0;
+    --f1-timing-yellow: #ffff1b;
+    --f1-timing-green: #22ff08;
+    --f1-timing-purple: #f700fa;
+    --f1-timing-orange: #ed7609;
+    --f1-timing-cyan: #21ffff;
+    --f1-timing-red: #fb0006;
+    --f1-timing-row: #343444;
+    --f1-timing-alt: #212130;
+
+    --rbr-blue: #001a30;
+    --rbr-red: #ea1d2d;
+    --rbr-yellow: #fcd700;
+    --rbr-grey: #a8a9ac;
+
+    --orbr-neutral20: #F5F4F2;
+    --orbr-neutral50: #D4CFCA;
+    --orbr-ocean180: #13212c;
+    --orbr-ocean190: #0b171f;
+    --orbr-oracle: #c74634;
+
+    --ut-header-background-colour: var(--rbr-grey);
+}
+
+body {
+    color: var(--f1-hivis-white);
+    font-family: "formula1display-regular", Roboto, Arial, Helvetica, sans-serif;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 16px;
+    display: flex;
+    overflow: auto;
+    min-height: 100vh;
+    flex-direction: column;
+    background-color: var(--rbr-blue);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.disclaim {
+    color: var(--f1-hivis-white);
+    font-family: "titillium_webregular", Roboto, Arial, Helvetica, sans-serif;
+}
+
+.formf {
+    color: var(--f1-warm-red);
+}
+
+.txt-rbr {
+    color: var(--f1-timing-rbr);
+}
+
+.txt-amg {
+    color: var(--f1-timing-amg);
+}
+
+.txt-mcl {
+    color: var(--f1-timing-mcl);
+}
+
+.txt-fri {
+    color: var(--f1-timing-fri);
+}
+
+.txt-ast {
+    color: var(--f1-timing-ast);
+}
+
+.txt-trs {
+    color: var(--f1-timing-trs);
+}
+
+.txt-alf {
+    color: var(--f1-timing-alf);
+}
+
+.txt-alp {
+    color: var(--f1-timing-alp);
+}
+.txt-has {
+    color: var(--f1-timing-has);
+}
+
+.txt-wil {
+    color: var(--f1-timing-wil);
+}
+
+.txt-yel {
+    color: var(--f1-timing-yellow);
+}
+
+.txt-pur {
+    color: var(--f1-timing-purple);
+}
+
+.txt-cyn {
+    color: var(--f1-timing-cyan);
+}
+
+.txt-yel {
+    color: var(--f1-timing-yellow);
+}
+
+.txt-org {
+    color: var(--f1-timing-orange);
+}
+
+.txt-red {
+    color: var(--f1-timing-red);
+}
+
+.txt-grn {
+    color: var(--f1-timing-green);
+}
+
+.txt-wht {
+    color: var(--f1-off-white);
+}
+
+.txt-hvw {
+    color: var(--f1-hivis-white);
+}
+
+.txt-gry {
+    color: var(--f1-background-alt);
+}
+
+.txt-rbr-yel {
+    color: var(--rbr-yellow);
+}
+
+.txt-rbr-red {
+    color: var(--rbr-red);
+}
+
+.txt-rbr-gry {
+    color: var(--rbr-grey);
+}
+
+.max {
+    color: var(--f1-timing-orange);
+}
+
+.laptime {
+    min-width: 80px;
+    font-family: "titillium_webregular", Roboto, Arial, Helvetica, sans-serif;
+    font-size: 0.85em;
+}
+
+.time-white {
+    color: var(--f1-hivis-white);
+}
+
+.time-yellow {
+    color: var(--f1-timing-yellow);
+}
+
+.time-orange {
+    color: var(--f1-timing-orange);
+}
+
+.time-purple {
+    color: var(--f1-timing-purple);
+}
+
+.time-green {
+    color: var(--f1-timing-green);
+}
+
+.l_vert {
+    border-left: 6px solid;
+    height: 4px;
+    margin-right: 8px;
+}
+
+.t-Region-body {
+    color: #FFFFFF;
+    background-color: transparent; 
+}
+
+.t-ButtonRegion-col {
+    color: #FFFFFF;
+    background-color: var(--rbr-blue); 
+}
+.t-ButtonRegion-wrap {
+    color: #FFFFFF;
+    background-color: var(--rbr-blue); 
+}
+.t-Header-branding {
+    background-color: transparent; 
+    border: 0px;
+}
+
+.t-Region-header {
+    background-color: var(--rbr-blue);
+}
+
+.t-Report-colHead {
+    font-family: "titillium_webregular", Roboto, Arial, Helvetica, sans-serif;
+    font-size: 1.0em;
+    background-color: var(--f1-carbon-black);
+    color: var(--f1-background-alt);
+}
+
+.t-Report-cell {
+    font-family: "titillium_webregular", Roboto, Arial, Helvetica, sans-serif;
+    font-size: 1.1em;
+}
+
+.drivern {
+    font-family: "formula1display-bold", Roboto, Arial, Helvetica, sans-serif;
+    font-size: 0.95em;
+}
+
+.l_vert {
+    border-left: 6px solid;
+    height: 4px;
+    margin-right: 8px;
+}
+
+.info {
+    width: 140px; 
+    min-height: 80px; 
+    background-color: var(--f1-background-alt); 
+    text-align: center;
+    margin: 50 50 50 50;
+}
+
+.esports {
+  padding-top: 100px;
+  background-image: url("#APP_FILES#ORBR22_dash_generic.jpg");
+  background-color: var(--rbr-blue); 
+  height: 980px;
+  background-position: center top; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: contain;
+}
+
+.esports .t-Region-header {
+    background-color: transparent;
+}
+
+.esports .t-ButtonRegion-wrap {
+    background-color: transparent;
+}
+.esports .t-ButtonRegion-col--content {
+    background-color: transparent;
+}
+
+.esports .t-ButtonRegion-col--left {
+    background-color: transparent;
+}
+
+.esports .t-ButtonRegion-buttons {
+    background-color: transparent;
+}
+
+.esports .leader {
+    min-height: 455px;
+    background: rgb(27,45,78);
+    background: linear-gradient(138deg, rgba(27,45,78,0.7) 9%, rgba(33,63,128,0.55) 63%, rgba(45,45,77,1) 93%);
+}
+
+.circuit {
+    position: relative;
+    color: var(--f1-hivis-white);
+    font-family: "titillium_webregular", Roboto, Arial, Helvetica, sans-serif;
+    font-size: 0.8em;
+}
+
+.circuit img {
+    max-height: 40px;
+    position: absolute;
+    top: -45px;
+    left: 0;
+}
+
+.rank {
+     cursor: zoom-in;
+}
+
+.t-Report--altRowsDefault .t-Report-report tr:nth-child(even) {
+    background-color: var(--f1-timing-row);
+}
+.t-Report--altRowsDefault .t-Report-report tr:nth-child(odd) {
+    background-color: var(--f1-timing-alt);
+}
+
+.t-Header-logo {
+    text-align: right;
+    position: fixed;
+    right: 0;
+    top: 27px;
+}
+.t-Header-logo img {
+    max-height: 85px;
+    position: sticky;
+    position: -webkit-sticky; /* Safari */
+    top: 0;
+    z-index:100;
+}

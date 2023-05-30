@@ -32,3 +32,5 @@ Temporary Items
 .crt
 .csr
 .pem
+
+.l1deploy/terraform/f1-simulator-tf-old.zip

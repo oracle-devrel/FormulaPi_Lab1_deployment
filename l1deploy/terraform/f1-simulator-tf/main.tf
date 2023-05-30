@@ -89,7 +89,7 @@ module "f1sim_vcn" {
   # vcn parameters
   lockdown_default_seclist = false # boolean: true or false
   create_internet_gateway  = true
-  create_service_gateway  = true
+  create_service_gateway  = false
   subnets = {
     f1sim_public_vcn = {
       name = "f1sim_public_subnet"
