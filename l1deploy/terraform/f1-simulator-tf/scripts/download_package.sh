@@ -52,10 +52,10 @@ then
     mkdir ${INSTALL_HOME}/dist
 fi
 
-wget -O ${INSTALL_HOME}/dist/${LF} ${PACKAGE_BASEURL}${LATEST_BUILD}
+wget -O ${INSTALL_HOME}/dist/${LATEST_BUILD} ${PACKAGE_BASEURL}${LATEST_BUILD}
 
 # Unzip package
-tar xzvf ${INSTALL_HOME}/dist/${LF} --directory=$INSTALL_HOME
+tar xzvf ${INSTALL_HOME}/dist/${LATEST_BUILD} --directory=$INSTALL_HOME
 
 if [ ! -d ${INSTALL_HOME}/log ]
 then
