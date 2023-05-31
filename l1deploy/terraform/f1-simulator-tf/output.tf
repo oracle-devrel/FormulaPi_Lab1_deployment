@@ -5,3 +5,11 @@ output "apex_url" {
 output "db_schema" {
   value = var.DB_SCHEMA
 }
+
+output "db_password" {
+  value = var.DB_PASSWORD
+}
+
+output "db_admin" {
+  value = var.ADMIN_PASSWORD
+}

@@ -44,23 +44,7 @@ then
 fi
 
 # Download package
-if [ -z "${PACKAGE_NAME}" ]
-then 
-    LATEST_BUILD=`curl -s ${PACKAGE_BASEURL} | jq -rc --arg PROJECT "${CP}/${CP}" '[ .objects[] | select(.name | contains($PROJECT)) ] | last | .name'`
-else
-    LATEST_BUILD="${PACKAGE_NAME}"
-fi
-echo ${LATEST_BUILD}
-
-LV=`echo "${LATEST_BUILD}" | cut -d '.' -f 1 | rev | cut -d '-' -f 1 | rev`
-LF=`echo "${LATEST_BUILD}" | cut -d '/' -f 2-`
-
-if [ $((${CV} < ${LV})) = 0 ]
-then
-    echo "${CURRENT_BUILD} is the latest build."
-    exit
-fi
-
+LATEST_BUILD="${PACKAGE_NAME}"
 echo "${LATEST_BUILD} is the latest build. Installing."
 
 if [ ! -d ${INSTALL_HOME}/dist ]
@@ -81,7 +65,7 @@ fi
 # temporary bug fix (to allow for previous incomplete apply)
 # issue related to unzip of the package configuration doesn't overwrite / allow for existing configuration
 # action is to remove SQL files that are unzipped
-if [ -e "${INSTALL_HOME}/application/*.sql" ]
-then
-    rm ${INSTALL_HOME}/application/*.sql
-fi
+# if [ -e "${INSTALL_HOME}/application/*.sql" ]
+# then
+#     rm ${INSTALL_HOME}/application/*.sql
+# fi

@@ -39,9 +39,9 @@ For latest packet definition please visit [here](https://racinggames.gg/f1/f1-22
       <copy>$F1SIM_HOME/bin/install_di.sh</copy>
       ```
     ![yaml](images/install.gif) 
-2. Add your Python version i.e. `3.9`
-   ![yaml](images/python.gif) 
-3. Create RabbitMQ login and password (We will need them later)
+2. Add your Python version i.e. `3.9`  
+   ![yaml](images/python.gif)  
+3. Create RabbitMQ login and password (We will need them later)  
    ![yaml](images/messaging.gif)
 4. Once completed duplicate ***f1store.yaml.template *** - 
       ```
@@ -60,12 +60,13 @@ For latest packet definition please visit [here](https://racinggames.gg/f1/f1-22
     ![rabbit](images/rabbit.gif) 
    5.  ***dbusername*** - from your stack
    6.  ***dbpassword*** - from your stack 
-   7.  ***dburl*** in Cloud Shell Run 
+   7.  ***dbwalletpassword*** - from your stack 
+   8.  ***dburl*** in Cloud Shell Run 
       ```
       <copy>cat Wallet/tnsnames.ora</copy>
       ```
     ![tns](images/tns.png) 
-7.  Run:  to start services:
+7.  To start services:
       ```
       <copy>./bin/start.sh</copy>
       ```

@@ -48,12 +48,10 @@ variable APEX_WORKSPACE {
 }
 
 variable DB_PASSWORD {
-  default = "W3lc0m3SIM123"
   sensitive = true 
 }
 
 variable ADMIN_PASSWORD {
-  default = "W3lc0m3SIM123!#"
   sensitive = true
 }
 

@@ -69,6 +69,7 @@ LOG=$INSTALL_HOME/log/install.log
 # Install objects>
 echo "set lines 199 trimsp on pages 0 feed on
 -- spool $SLOG
+set define off
 connect ${DB_USER}/\"${DB_PASSWORD}\"@${TNS_PROFILE}
 lb clear-checksums
 lb update -changelog-file ${MODEL_FILE}

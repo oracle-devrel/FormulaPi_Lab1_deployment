@@ -87,6 +87,7 @@ fi
 # Install APEX apps
 echo "set lines 199 trimsp on pages 0 feed on
 -- spool $SLOG
+set define off
 connect ADMIN/\"${ADMIN_PASSWORD}\"@${TNS_PROFILE};
 create user ${DB_USER} identified by \"${DB_PASSWORD}\";
 grant DWROLE, CONNECT, RESOURCE, SODA_APP, unlimited tablespace to ${DB_USER};

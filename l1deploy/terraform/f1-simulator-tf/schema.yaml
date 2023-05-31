@@ -84,10 +84,9 @@ variables:
 
   ADMIN_PASSWORD:
     type: password
-    title: "ADMIN User Password - leave blank if random password is preferred"
+    title: "ADMIN User Password also used for dbwalletpassword in data ingestion - leave blank if random password is preferred"
     required: false
     visible: true
-    default: "W3lc0m3SIM123!#"
 
   APEX_WORKSPACE:
     type: string
@@ -112,10 +111,9 @@ variables:
 
   DB_PASSWORD:
     type: password
-    title: "Database Password (for Database User) - leave blank if random password is preferred"
+    title: "Database Password (for Database User) also used for dbpassword in data ingestion- leave blank if random password is preferred"
     required: false
     visible: true
-    default: "W3lc0m3SIM123"
 
   package_install:
     type: string
