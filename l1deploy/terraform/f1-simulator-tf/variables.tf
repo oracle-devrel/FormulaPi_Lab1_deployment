@@ -49,10 +49,12 @@ variable APEX_WORKSPACE {
 
 variable DB_PASSWORD {
   sensitive = true 
+  default = ""
 }
 
 variable ADMIN_PASSWORD {
   sensitive = true
+  default = ""
 }
 
 variable "autonomous_database_type" {
