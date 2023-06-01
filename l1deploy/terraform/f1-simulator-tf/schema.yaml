@@ -84,13 +84,15 @@ variables:
 
   ADMIN_PASSWORD:
     type: password
-    title: "ADMIN User Password also used for dbwalletpassword in data ingestion - leave blank if random password is preferred"
+    title: "ADMIN User Password"
+    description: "This is used access the APEX Admin Console and also used for dbwalletpassword in the Data Ingestion f1store.yaml configuration. - leave blank if random password is preferred"
     required: false
     visible: true
 
   APEX_WORKSPACE:
     type: string
     title: "APEX Workspace (for F1SIM)"
+    description: "This is used for accessing the APEX App Builder to build the leaderboard"
     required: true
     visible: true
     default: "LIVELAPS"
@@ -105,13 +107,15 @@ variables:
   DB_USER:
     type: string
     title: "Database User (for F1SIM)"
+    description: "This is used for accessing the APEX App Builder to build the leaderboard and also used for the dbusername in the Data Ingestion f1store.yaml configuration."
     required: true
     visible: true
     default: "SIMUSER"
 
   DB_PASSWORD:
     type: password
-    title: "Database Password (for Database User) also used for dbpassword in data ingestion- leave blank if random password is preferred"
+    title: "Database User Password (for F1SIM)"
+    description: "This is also used for dbpassword in the Data Ingestion f1store.yaml configuration. - leave blank if random password is preferred"
     required: false
     visible: true
 
@@ -120,7 +124,7 @@ variables:
     title: "Package Install"
     required: true
     visible: true
-    default: "f1-simulator-cloud/f1-simulator-cloud-v5_0_0-1.tar.gz"
+    default: "f1-simulator-cloud/f1-simulator-cloud-v5_0_0-2.tar.gz"
 
   package_baseurl:
     type: string

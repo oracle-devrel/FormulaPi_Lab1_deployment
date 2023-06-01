@@ -15,6 +15,6 @@ variable "special_chars_enabled" {
   type = bool
 }
 variable "override_special" {
-  default = "!#$%&*()-_=+[]{}<>:?"
+  default = "!#*-_=+:?"
   type = string
 }

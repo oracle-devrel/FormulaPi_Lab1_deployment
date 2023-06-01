@@ -45,6 +45,7 @@ fi
 
 # Download package
 LATEST_BUILD="${PACKAGE_NAME}"
+LF=`echo "${LATEST_BUILD}" | cut -d '/' -f 2-`
 echo "${LATEST_BUILD} is the latest build. Installing."
 
 if [ ! -d ${INSTALL_HOME}/dist ]
