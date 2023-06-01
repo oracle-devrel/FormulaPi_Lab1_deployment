@@ -2,8 +2,6 @@
 
 [![License: UPL](https://img.shields.io/badge/license-UPL-green)](https://img.shields.io/badge/license-UPL-green) [![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=oracle-devrel_FormulaPi_Lab1_deployment)](https://sonarcloud.io/dashboard?id=oracle-devrel_FormulaPi_Lab1_deployment)
 
-## THIS IS A NEW, BLANK REPO THAT IS NOT READY FOR USE YET.  PLEASE CHECK BACK SOON!
-
 ## Introduction
 Looking to gain a hands-on experience with Oracle technology? Look no further than the Formula Pi Demo Kit. In this lab, you'll deploy data ingestion infrastructure and low-code app through Oracle Resource Manager, configure your db connection, and personalize your front end dashboard by combining CSS and SQL. You'll also explore the use of Oracle's APEX tool to create a visually appealing and user-friendly dashboard for your eSports data. With its simplified development lifecycle and WYWASIG interface, APEX streamlines the development process, allowing you to focus on delivering a top-quality product that meets the needs of your users.
 
