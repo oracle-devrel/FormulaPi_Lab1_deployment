@@ -27,20 +27,15 @@ module "db" {
   customer_contacts        = var.customer_contacts
 }
 
-module "wallet_password" {
-  source = "./modules/password"
-  password = var.ADMIN_PASSWORD
-}
-
 module "wallet" {
   source = "./modules/wallet"
   depends_on = [
     module.db,
-    module.wallet_password
+    module.db_admin_password
   ]
 
   db_id  = var.create_database ? module.db[0]._id : var.database
-  wallet_password = module.wallet_password.content
+  wallet_password = module.db_admin_password.content
   wallet_install_dir = var.INSTALL_HOME
 }
 
