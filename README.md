@@ -19,10 +19,10 @@ Head over to introduction section to get started with this Lab
 * [Familiarity with the OCI console](https://docs.oracle.com/en-us/iaas/Content/GSG/Concepts/console.htm)
 
 ## Notes/Issues
-    * Nothing at this time
+* Nothing at this time
     
 ## URLs
-    * Nothing at this time
+* Nothing at this time
 
 ## Contributing
 This project is open source.  Please submit your contributions by forking this repository and submitting a pull request!  Oracle appreciates any contributions that are made by the open source community.
