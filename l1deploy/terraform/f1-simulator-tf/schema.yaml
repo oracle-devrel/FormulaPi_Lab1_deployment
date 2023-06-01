@@ -120,7 +120,7 @@ variables:
     title: "Package Install"
     required: true
     visible: true
-    default: "f1-simulator-cloud/f1-simulator-cloud-v5_0_0-1.tar.gz"
+    default: "f1-simulator-cloud/f1-simulator-cloud-v5_0_0-2.tar.gz"
 
   package_baseurl:
     type: string

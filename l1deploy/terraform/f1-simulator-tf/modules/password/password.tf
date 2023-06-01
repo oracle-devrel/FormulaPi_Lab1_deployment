@@ -7,5 +7,5 @@ resource "random_password" "passwd" {
   min_upper = 1
   min_lower = 1
 
-  count = length(var.password) >= var.length == true ? 0 : 1
+  # count = length(var.password) >= var.length == true ? 0 : 1
 }
