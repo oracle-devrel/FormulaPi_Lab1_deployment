@@ -124,14 +124,14 @@ variables:
     title: "Package Install"
     required: true
     visible: true
-    default: "f1-simulator-cloud/f1-simulator-cloud-v5_0_0-2.tar.gz"
+    default: "v1.0/f1-simulator-cloud-v5_0_0-2.tar.gz"
 
   package_baseurl:
     type: string
     title: "Package Repo URL"
     required: true
     visible: true
-    default: "https://rooms.opcvr.com/packages/"
+    default: "https://github.com/oracle-devrel/FormulaPi_Lab1_deployment/releases/download/"
 
   customer_contacts:
     type: string

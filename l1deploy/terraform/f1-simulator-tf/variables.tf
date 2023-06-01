@@ -16,11 +16,11 @@ variable "compartment_ocid" {
 
 variable package_baseurl {
   type = string
-  default = "https://rooms.opcvr.com/packages/"
+  default = "https://github.com/oracle-devrel/FormulaPi_Lab1_deployment/releases/download/"
 }
 variable package_install {
   type = string
-  default = "f1-simulator-cloud/f1-simulator-cloud-v4_0_0-20.tar.gz"
+  default = "v1.0/f1-simulator-cloud-v5_0_0-2.tar.gz"
 }
 
 variable IS_FREE_TIER {
