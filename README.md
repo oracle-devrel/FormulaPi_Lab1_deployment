@@ -12,15 +12,15 @@ The hands-on lab will take you through the following steps:
         ***Lab 3*** - Exploring Data in APEX  
 
 ## Getting Started
-    Head over to introduction section to get started with this Lab
+Head over to introduction section to get started with this Lab
 
 ### Prerequisites
-    * An Oracle Free Tier or Paid Cloud Account
-    * [Familiarity with the OCI console](https://docs.oracle.com/en-us/iaas/Content/GSG/Concepts/console.htm)
+* An Oracle Free Tier or Paid Cloud Account
+* [Familiarity with the OCI console](https://docs.oracle.com/en-us/iaas/Content/GSG/Concepts/console.htm)
 
 ## Notes/Issues
-MISSING
-
+    * Nothing at this time
+    
 ## URLs
     * Nothing at this time
 
