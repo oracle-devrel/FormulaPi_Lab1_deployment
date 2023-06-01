@@ -218,8 +218,6 @@ resource null_resource export_file_wallet {
       "sudo dnf install -y git",
       "sudo firewall-cmd --permanent --zone=public --add-port=20777/udp",
       "sudo firewall-cmd --reload",
-      "mkdir /home/opc/f1sim",
-      "cd /home/opc/f1sim",
       "git clone https://git.opcvr.tech/esports/dataingestion.git",
     ]
   }
@@ -230,9 +228,3 @@ resource null_resource export_file_wallet {
   }
   
 }
-
-# resource "oci_kms_vault" "generated_oci_kms_vault" {
-# 	compartment_id = var.compartment_ocid
-# 	display_name = "f1simvault"
-# 	vault_type = "VIRTUAL_PRIVATE"
-# }

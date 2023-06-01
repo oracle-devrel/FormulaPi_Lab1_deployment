@@ -1,5 +1,5 @@
 # Low Code eSports Analytics with Oracle Resource Manager and APEX 
-    Looking to gain a hands-on experience with Oracle technology? Look no further than the Formula Pi Demo Kit. In this lab, you'll deploy data ingestion infrastructure and low-code app through Oracle Resource Manager, configure your db connection, and personalize your front end dashboard by combining CSS and SQL. You'll also explore the use of Oracle's APEX tool to create a visually appealing and user-friendly dashboard for your eSports data. With its simplified development lifecycle and WYWASIG interface, APEX streamlines the development process, allowing you to focus on delivering a top-quality product that meets the needs of your users.
+Looking to gain a hands-on experience with Oracle technology? Look no further than the Formula Pi Demo Kit. In this lab, you'll deploy data ingestion infrastructure and low-code app through Oracle Resource Manager, configure your db connection, and personalize your front end dashboard by combining CSS and SQL. You'll also explore the use of Oracle's APEX tool to create a visually appealing and user-friendly dashboard for your eSports data. With its simplified development lifecycle and WYWASIG interface, APEX streamlines the development process, allowing you to focus on delivering a top-quality product that meets the needs of your users.
 
 ## FormulaPi kit lab structure:
 The hands-on lab will take you through the following steps:  
@@ -8,8 +8,8 @@ The hands-on lab will take you through the following steps:
         ***Lab 3*** - Exploring Data in APEX  
 
 ### Prerequisites
-    * An Oracle Free Tier or Paid Cloud Account
-    * [Familiarity with the OCI console](https://docs.oracle.com/en-us/iaas/Content/GSG/Concepts/console.htm)
+* An Oracle Free Tier or Paid Cloud Account
+* [Familiarity with the OCI console](https://docs.oracle.com/en-us/iaas/Content/GSG/Concepts/console.htm)
 
 ## Task 1: Create your Free Trial Account
 
@@ -85,6 +85,6 @@ If you already have a cloud account, skip to the **Get Started** section.
 ![Architecture](~/../../l1deploy/images/architecture.png)  
 
 ## Acknowledgements
-* **Author** - <Wojciech Pluta, Immersive Lead, DevRel>
-* **Contributors** -  <Jason Lowe, Oracle>
-* **Last Updated By/Date** - <Name, Month Year>
+ - **Author/Contributors** -  Stuart Coggins, Wojciech Pluta, Jason Lowe
+ - **Contributor** - Oracle LiveLabs Team
+* **Last Updated By/Date** - <Wojciech, 05 2023>

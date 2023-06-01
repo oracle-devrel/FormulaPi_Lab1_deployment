@@ -5,14 +5,18 @@
 In this workshop, we will focus on setting up the backend infrastructure for our game data.
 
 ### Objectives
+
 In this workshop, you will learn how to:
+
 * Configure and deploy custom stack using Resource Manager
 * (Optional) Execute the Liquibase in OCI Shell
 
 Estimated Workshop Time: 20 minutes
 
 ### Prerequisites
+
 This lab assumes you have:
+
 * An Oracle account
 
 ## Task 1: Deploying Stack with Oracle Resource Manager
@@ -21,21 +25,21 @@ This lab assumes you have:
 
    If you aren't already signed in, when prompted, enter the tenancy and user credentials.
 
-5. Add your SSH key
+2. Add your SSH key
 ![ssh](images/addssh.png)
 
-You can generate one using following commands  
-1. cd to your .ssh folder for example:  
-          `cd /home/user_name/.ssh/`  
-          `ssh-keygen -b 2048 -t rsa`
-2. Enter file in which to save the key ('/home/user_name/.ssh/id_rsa'): _dataingestion_
-3. Run:  
-          `cat dataingestion.pub`
+You can generate one using following commands
 
+* Open to your .ssh folder for example:
+      `cd /home/user_name/.ssh/`  
+      `ssh-keygen -b 2048 -t rsa`
+* Enter file in which to save the key (/home/user_name/.ssh/id_rsa): _dataingestion_  
+* Run:  
+          `cat dataingestion.pub`  
 
 ## Task 2: Configuring the Stack
 
-1. Review stack information, make any desired changes to users and passwords, then press _Next_.
+1. Review stack information, make any desired changes to user and password, then press _Next_.
 ![Stack Configuration](images/stackconfig.gif)
 
 ## Task 3: Executing Plan/Apply
@@ -44,7 +48,6 @@ You can generate one using following commands
 ![Plan/Apply](images/runapply.gif)
 
 You may now **proceed to the next lab**
-
 
 ## (Optional Task) Intro for Liquibase
 
@@ -56,22 +59,21 @@ Another important aspect of Liquibase is its ability to handle database migratio
 
 In summary, Liquibase is a powerful and versatile tool that simplifies the process of managing databases, making it an essential tool for any software developer. It allows for efficient management of complex data structures, supports a wide range of database management systems, and handles database migrations seamlessly. It's a great tool for those who are looking to streamline their development process and improve the efficiency of their software projects.
 
-
 ## (Optional Task) Accessing DB Wallet in Cloud Shell
 
 Cloud Shell
 Copy OCID of of the Authonomous db
-in Shell 
+in Shell  
           ```
           <copy>export ADBID =<paste your DBOCID here></copy>
           ```
 
-Now set the name of the wallet as environment variable 
+Now set the name of the wallet as environment variable  
           ```
           <copy>export WNAME=wallet.zip</copy>
           ```
 
-Lets now generate a wallet password as environment variable 
+Lets now generate a wallet password as environment variable  
           ```
           <copy>export WPWD=<add your password here></copy>
           ```
@@ -97,7 +99,7 @@ You can also use the liquibase status command to see the status of the schema at
           ```
 
 ## Acknowledgements
- - **Author/Contributors** -  Stuart Coggins, Wojciech Pluta, Jason Lowe
- - **Contributor** - Oracle LiveLabs Team
-* **Last Updated By/Date** - <Name, Month Year>
 
+* **Author/Contributors** -  Stuart Coggins, Wojciech Pluta, Jason Lowe
+* **Contributor** - Oracle LiveLabs Team
+* **Last Updated By/Date** - <Wojciech, 05 2023>
