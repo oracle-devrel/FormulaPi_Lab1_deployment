@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+  <include file="f1sim-device_table.xml"/> 
+  <include file="f1sim-lapdata_table.xml"/> 
+  <include file="f1sim-session_table.xml"/> 
+  <include file="f1sim-laptime_table.xml"/> 
+  <include file="f1sim-telemetry_table.xml"/> 
+  <include file="f1sim-motion_table.xml"/> 
+  <include file="f1sim-lapdata_comments.xml"/> 
+  <include file="f1sim-telemetry_comments.xml"/> 
+  <include file="f1sim-motion_comments.xml"/> 
+  <include file="vf1_lapframes_view.xml"/> 
+  <include file="num_to_tod_function.xml"/> 
+  <include file="flip_coord_function.xml"/> 
+  <include file="f1sim-session_pk_index.xml"/> 
+  <include file="idx_motion_1_index.xml"/> 
+  <include file="idx_lapdata_1_index.xml"/> 
+  <include file="idx_telemetry_1_index.xml"/>
+</databaseChangeLog> 

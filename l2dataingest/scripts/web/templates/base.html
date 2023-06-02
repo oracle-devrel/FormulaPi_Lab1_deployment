@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/f1sim.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <link rel="icon" href="{{ url_for('static', filename= 'images/favicon.ico') }}" type="image/x-icon" />
+    {% block javascript %} {% endblock %}
+    <title>{% block title %} {% endblock %}</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+      <a class="navbar-brand " href="{{ url_for('index')}}">Oracle LiveLaps</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse topnav" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="/about">Help</a>
+          </li>
+          <li class="nav-item active">
+           <a class="nav-link" target="_blank" href="/leaderboard">Leaderboard</a>
+          </li>
+          <li class="nav-item active">
+           <a class="nav-link" target="_blank" href="/registration">Registration</a>
+          </li>
+          <li class="nav-item active">
+           <a class="nav-link" href="/circuit">Circuit</a>
+          </li>
+          <li class="nav-item active">
+           <a class="nav-link" href="/telemetry">Telemetry</a>
+          </li>
+          <li class="nav-item active">
+           <a class="nav-link" href="/rbr/rb18">ORBR</a>
+          </li>
+        </ul>
+      </div>
+  </nav>
+  <div class="container-fluid">
+      {% block content %} {% endblock %}
+  </div>
+  </body>
+  </html>

@@ -5,7 +5,8 @@
 
 # Icon must end with two \r
 Icon
-
+.terraform
+*tfstate*
 
 # Thumbnails
 ._*
@@ -31,3 +32,5 @@ Temporary Items
 .crt
 .csr
 .pem
+
+.l1deploy/terraform/f1-simulator-tf-old.zip

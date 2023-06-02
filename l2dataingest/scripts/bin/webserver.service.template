@@ -1,0 +1,14 @@
+[Unit]
+Description=F1Sim WebServer
+After=network-online.target
+ 
+[Service]
+ExecStart=<F1SIM_HOME>/bin/run_webserver.sh
+WorkingDirectory=<F1SIM_HOME>
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+User=<USER>
+ 
+[Install]
+WantedBy=multi-user.target

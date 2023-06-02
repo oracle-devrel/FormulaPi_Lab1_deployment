@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block javascript%}
+<script src="{{ url_for('static', filename= 'js/services.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+    <h1>{% block title %} Service Status | {{ ghost }} {% endblock %}</h1>
+    <button class="btn btn-lg btn-info" onClick="location.reload();"><i class="bi bi-arrow-clockwise">Refresh</i></button>
+    <button class="btn btn-lg btn-primary" onClick="parent.location='/yaml'">View YAML Config</button>
+    <button class="btn btn-lg btn-primary" onClick="parent.location='/control/producer'">{{ f1prodbtn }}</button>
+    <button class="btn btn-lg btn-primary" onClick="parent.location='/control/consumer'">{{ f1consbtn }}</button>
+    <br />
+    <br />
+    <div id="gamehost" class="timing">
+        <div>Gamehost: <span class="txt-gry">{{ ghost }}</span></div>
+        <div>Device: <span class="txt-gry">{{ dname }}</span></div>
+    </div>
+    <br />
+    <div id="producer" class="timing">   
+        Producer Service
+    </div>
+    <br>
+    <div id="consumer" class="timing">    
+        Consumer Service
+    </div>
+    <br />
+    <div id="f1store" class="timing">
+        &nbsp;
+    </div>
+    <br>
+    <br>
+    <div id="info" class="timing">
+        <div>Temperature<div id="temp">0.00</div>°c</div>
+    </div>
+    <br>
+    <div id="process">
+        &nbsp;
+    </div>
+ 
+
+{% endblock %}

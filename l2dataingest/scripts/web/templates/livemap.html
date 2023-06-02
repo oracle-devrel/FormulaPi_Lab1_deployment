@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block javascript %}
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script type="text/javascript">
+        var hometrack = '{{ data.hometrack }}'
+        var gameversion = '{{ data.packetformat }}'
+     </script>
+    <script src="{{ url_for('static', filename= 'js/f1utils.js') }}"></script>
+    <script src="{{ url_for('static', filename= 'js/circuitMap.js') }}"></script>
+
+{% endblock %}
+
+{% block content %}
+
+    <h2 id="graphtitle"> {% block title %} Circuit {% endblock %}</h2>
+    <div class="mcontainer">
+        <div class="mfixed">
+            <br />
+            <div id="track_id" class="graph-hdg">&nbsp;</div>
+            <div class="graph-title">Track Length: <span id="track_len" class="graph-data">&nbsp;</span></div>
+            <div id="track_co" class="graph-title">&nbsp;</div>
+            <div id="flag"></div>
+            <div id="track_f1lr" class="graph-title">Lap Record: </div>
+            <div id="track_llr" class="graph-title">LiveLaps Record: </div>
+        </div>
+        <div class="mflex-item" id="graph1"><!-- Plotly chart will be drawn inside this DIV --></div>
+    </div>
+
+{% endblock %}

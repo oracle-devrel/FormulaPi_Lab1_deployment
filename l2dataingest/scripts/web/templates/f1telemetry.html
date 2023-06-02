@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block javascript %}
+        <script src="https://cdn.plot.ly/plotly-2.14.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.2/mqttws31.min.js"></script>
+        <script type="text/javascript">
+           var rmqusername ='{{ data.rmqusername }}'
+           var rmqpassword ='{{ data.rmqpassword }}'
+           var hometrack = '{{ data.hometrack }}'
+           var gameversion = '{{ data.packetformat }}'
+        </script>
+        <script src="{{ url_for('static', filename= 'js/f1utils.js') }}"></script>
+        <script src="{{ url_for('static', filename= 'js/telemetryMQ.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+    <h2 id="graphtitle"> {% block title %} LiveLaps Telemetry {% endblock %}</h2>
+   
+    <div class="dash"><label class="switch"><input type="checkbox" id="sw_console" onclick="consoleSwitch()"><span class="slider round"></span></label></div>
+    <div class="dash" id="message">Data Connection</div>
+</div>
+
+<div class="grid-container">
+    <div>Seat 1<br /><br />
+    <table style="width:280px; margin: 0 auto">
+        <tr style="width: 100%; margin: 0 auto;"><td>Accelerate&nbsp;</td><td style="background-color: black; height: 10px; width: 180px;"><div id="s1_acc">&nbsp;</div></td></tr>
+        <tr style="width: 100%; margin: 0 auto;"><td>Brake&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="background-color: black; height: 10px; width: 180px;"><div id="s1_br">&nbsp;</div></td></tr>
+    </table>
+    <br />
+    <table style="width: 100%; margin: 0 auto;">
+        <tr style="display: flex;">
+            <td class="telemetry small">Gear</td><td width="50px" id="s1_gear" class="telemetry digits med dw_sngle txt-gry">0</td>
+            <td class="telemetry small">Speed</td><td width="250px" id="s1_speed" class="telemetry digits large dw_med txt-gry">0</td>
+            <td class="telemetry small">RPM</td><td id="s1_rpm" class="telemetry digits med dw_max txt-gry" style="margin-right: 0;">0000</td>    
+        </tr>
+    </table>
+    <br />
+        <p class="dash small">Lap:</p> <div id="s1_lap" class="digits med dw_sngle txt-gry">-</div><br />
+        <p class="dash small">Sector:</p> <div id="s1_sec" class="digits dw_sngle med txt-gry">-</div><br />
+        <p class="dash small">S1:</p> <div id="s1_s1" class="dash timing small timing_yel">0.000</div> <br />
+        <p class="dash small">S2:</p> <div id="s1_s2" class="dash timing small timing_yel">0.000</div> <br />
+        <p class="dash small">S3:</p> <div id="s1_s3" class="dash timing small timing_yel">0.000</div> <br /><br />
+        
+    </div>
+<!--
+    <div>Seat 2<br /><br />
+    <table>
+        <tr width="100%">
+            <td>Accelerate </td><td style="background-color: black; width: 130px;"><div id="s2_acc">&nbsp;</div></td>
+            <td>&nbsp;Brake&nbsp;&nbsp;&nbsp;&nbsp;    </td><td style="background-color: black; width: 130px;"><div id="s2_br">&nbsp;</div></td>
+            </tr>
+    </table>
+    <br />
+    <div class="dash small">Gear</div><div id="s2_gear"class="digits med dw_sngle txt-gry">0</div>
+    <div class="dash small">Speed</div><div id="s2_speed"class="digits large dw_med txt-gry">0</div>
+    <div class="dash small">RPM</div><div id="s2_rpm" class="digits med dw_max txt-gry">0000</div>
+        <br />
+        <p class="dash small">Lap:</p> <div id="s2_lap" class="digits med dw_sngle txt-gry">-</div><br />
+        <p class="dash small">Sector:</p> <div id="s2_sec" class="digits med     dw_sngle txt-gry">-</div><br />
+        <p class="dash small">S1:</p> <div id="s2_s1" class="dash timing small timing_yel">0.000</div> <br />
+        <p class="dash small">S2:</p> <div id="s2_s2" class="dash timing small timing_yel">0.000</div> <br />
+        <p class="dash small">S3:</p> <div id="s2_s3" class="dash timing small timing_yel">0.000</div> <br /><br />
+        <p class="dash small">Current Lap</p><div id="s2_clap" class="timing med">0.000</div><br />
+        <p class="dash small">Best Lap</p> <div id="s2_blap" class="timing med">0.000</div><br />
+        <p class="dash small">Last Lap</p> <div id="s2_llap" class="timing med">0.000</div><br />
+    <div id="mq"></div>
+    </div>
+-->
+    <div>Timing<br /><br />
+        <p class="dash small" id="info">Engine</p><div id="info_data" class="small">Starting</div><br />
+        <p class="dash small">Current Lap</p><div id="s1_clap" class="timing med">0.0</div><br />
+        <p class="dash small">Best Lap</p> <div id="s1_blap" class="timing med">0.000</div><br />
+        <p class="dash small">Last Lap</p> <div id="s1_llap" class="timing med">0.000</div><br />
+    </div>
+
+    <div>Circuit<br /><br />
+        <div class="mflex-item" id="graph1"><!-- Plotly chart will be drawn inside this DIV --></div>
+    </div>
+
+</div>
+{% endblock %}
