@@ -8,6 +8,11 @@ output "ssh_command" {
   value = "ssh -i ~/.ssh/id_rsa opc@${module.f1sim_instance.public_ip_all_attributes["0"].ip_address}"
 }
 
+output "admin_credentials" {
+  description = "Used for APEX User Credentials to login into the APEX App Builder"
+  value = nonsensitive(module.db_admin_password.content)
+}
+
 output "apex_workspace" {
   description = "Used for APEX Workspace Name to log into the APEX App Builder"
   value = var.APEX_WORKSPACE
@@ -18,7 +23,7 @@ output "apex_user" {
   value = var.DB_SCHEMA
 }
 
-output "apex_credentials" {
+output "apex_user_credentials" {
   description = "Used for APEX User Credentials to login into the APEX App Builder"
   value = nonsensitive(module.db_user_password.content)
 }
