@@ -7,7 +7,7 @@ In this section, we will be discussing the creation of a presentation layer for 
 
 Throughout this section, we will explore how to import an application into APEX and personalize it using CSS and SQL conditional formatting. This will allow us to create a visually appealing and user-friendly interface for our eSports data, making it easily accessible and understandable for anyone who needs to interact with it. With APEX, we can streamline the development process and focus on delivering a top-quality product that meets the needs of our users.
 
-Estimated Time: 20 minutes
+Estimated Time: 40 minutes
 
 ### Objectives
 
