@@ -224,7 +224,7 @@ resource null_resource export_file_wallet {
 
   provisioner file {
     source     = "${var.INSTALL_HOME}/wallet.zip"
-    destination = "/home/opc/f1sim/dataingestion/Wallet.zip"
+    destination = "/home/opc/FormulaPi_Lab2_dataingestion/Wallet.zip"
   }
   
 }
