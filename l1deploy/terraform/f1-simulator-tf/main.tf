@@ -218,7 +218,7 @@ resource null_resource export_file_wallet {
       "sudo dnf install -y git",
       "sudo firewall-cmd --permanent --zone=public --add-port=20777/udp",
       "sudo firewall-cmd --reload",
-      "git clone https://git.opcvr.tech/esports/dataingestion.git",
+      "git clone https://github.com/oracle-devrel/FormulaPi_Lab2_dataingestion.git",
     ]
   }
 
