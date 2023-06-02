@@ -262,6 +262,6 @@ This completes the labs. WELL DONE!
 
 ## Acknowledgements
 
- * **Author/Contributors** -  Stuart Coggins, Wojciech Pluta, Jason Lowe
- 8 **Contributor** - Oracle LiveLabs Team
- 8 **Last Updated By/Date** - Wojciech, May 2023
+* **Author/Contributors** -  Stuart Coggins, Wojciech Pluta, Jason Lowe
+* **Contributor** - Oracle LiveLabs Team
+* **Last Updated By/Date** - Wojciech, May 2023
