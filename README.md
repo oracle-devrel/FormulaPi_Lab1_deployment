@@ -15,7 +15,7 @@ The hands-on lab will take you through the following steps:
 
 ## Getting Started
 
-Head over to introduction section to get started with this Lab
+[Head over to introduction section to get started with this Lab](https://oracle-devrel.github.io/FormulaPi_Lab1_deployment/workshops/freetier/index.html?lab=introduction)
 
 ### Prerequisites
 
