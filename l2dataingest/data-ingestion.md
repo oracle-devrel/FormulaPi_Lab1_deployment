@@ -13,7 +13,7 @@ Estimated Lab Time: 10 minutes
 In this workshop, you will learn about:
 
 * F1 data packets high level flow
-* Local Data Ingestion setup guide
+* Data Ingestion setup
 
 ### Prerequisites
 
@@ -100,7 +100,7 @@ For latest packet definition please visit [here](https://racinggames.gg/f1/f1-22
 
 You may now **proceed to the next lab**
 
-## (Optional)Task: Setting up Edge Device
+## (TBC)Task: Setting up Edge Device
 
 ### Requirements
 
@@ -132,7 +132,7 @@ You may now **proceed to the next lab**
 #### Installing Data Ingestion Application
 
 1. SSH into your Raspberry Pi
-2. Git clone Data Ingestion engine to your Raspberry Pi from: `https://git.opcvr.tech/esports/dataingestion`
+2. Git clone Data Ingestion engine to your Raspberry Pi from: `tbc`
 3. Checkout to Pi Branch
 4. Download wallet (eg _Wallet_ATP.zip_) and copy wallet zip file into $F1SIM_HOME
 5. Run  
