@@ -33,7 +33,7 @@ You can generate one using following commands
 * Open to your .ssh folder for example:
       `cd /home/user_name/.ssh/`  
       `ssh-keygen -b 2048 -t rsa`
-* Enter file in which to save the key (/home/user_name/.ssh/id_rsa): _dataingestion_  
+* Enter file in which to save the key (`/home/user_name/.ssh/id_rsa`): _dataingestion_  
 * Run:  
           `cat dataingestion.pub`  
 
