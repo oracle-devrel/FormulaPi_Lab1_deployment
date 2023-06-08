@@ -30,7 +30,7 @@ An APEX Workspace is a logical domain where you define APEX applications. Each w
 
 ## Task 1: Install custom app in Oracle APEX
 
-1. Download "Formula-Pi" APEX app [files](https://github.com/oracle-devrel/FormulaPi_Lab1_deployment/blob/main/l3apex/files/APEXapps.zip)
+1. Download "Formula-Pi" APEX app [files](https://github.com/oracle-devrel/FormulaPi_Lab1_deployment/releases/download/v1.0/APEXapps.zip)
 2. Copy the APEX direct link from the Resource Manager Output and paste it into your browser
     ![APEX Resource Manager Output URL](images/orm-apex-url.png)
 3. Log into your Oracle APEX instance.  

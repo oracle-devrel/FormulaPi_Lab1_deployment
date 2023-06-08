@@ -82,8 +82,6 @@ If you already have a cloud account, skip to the **Get Started** section.
     ![Final notification](images/account-provisioned.png)
 
 
-![Architecture](~/../../l1deploy/images/architecture.png)  
-
 ## Acknowledgements
  - **Author/Contributors** -  Stuart Coggins, Wojciech Pluta, Jason Lowe
  - **Contributor** - Oracle LiveLabs Team
