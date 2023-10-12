@@ -1,0 +1,73 @@
+---
+- name: Install nginx
+  dnf:
+    name: nginx
+    update_cache: yes
+- name: Install letsencrypt
+  dnf:
+    name: oracle-epel-release-el8
+    update_cache: yes    
+- name: Enable nginx
+  service:
+    name: nginx.service
+    state: started
+    enabled: yes
+- name: Add firewall ports
+  firewalld:
+    zone: public
+    service: http
+    permanent: yes
+    immediate: yes
+    state: enabled
+- name: Add firewall port
+  firewalld:
+    zone: public
+    service: https
+    permanent: yes
+    immediate: yes
+    state: enabled
+- name: Config nginx
+  command: echo > nginx_conf.txt
+server {
+        listen       443 ssl;
+        listen       [::]:443 ssl http2;
+        server_name  xxx.xxx.xxx.xxx;
+        root         /usr/share/nginx/html;
+#        ssl_certificate "/etc/nginx/ssl_certs/nginx01.my-oci.tk/fullchain.pem";
+#        ssl_certificate_key "/etc/nginx/ssl_certs/nginx01.my-oci.tk/privkey.pem";
+#        ssl on;
+         ssl_certificate /etc/letsencrypt/live/xxx.xxx.xxx.xxx/fullchain.pem; # managed by Certbot
+         ssl_certificate_key /etc/letsencrypt/live/xxx.xxx.xxx.xxx/privkey.pem; # managed by Certbot
+         ssl_session_cache shared:SSL:1m;
+         ssl_session_timeout  10m;
+         ssl_ciphers HIGH:!aNULL:!MD5;
+         ssl_prefer_server_ciphers on;
+ location /ords/ {
+    proxy_pass TODO:APEXURL;
+    proxy_set_header Origin "" ;
+    proxy_set_header X-Forwarded-Host $host:$server_port;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_connect_timeout       600;
+    proxy_send_timeout          600;
+    proxy_read_timeout          600;
+    send_timeout                600;
+ }
+ location /i/ {
+    proxy_pass TODO:APEXURL/i/;
+    proxy_set_header X-Forwarded-Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+ }
+        # Load configuration files for the default server block.
+        include /etc/nginx/default.d/*.conf;
+#
+        error_page 404 /404.html;
+            location = /40x.html {
+        }
+#
+        error_page 500 502 503 504 /50x.html;
+            location = /50x.html {
+        }
+}

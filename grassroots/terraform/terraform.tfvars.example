@@ -1,0 +1,36 @@
+######################################################################################################
+# Identity and access parameters
+######################################################################################################
+api_fingerprint = ""
+api_private_key_path = ""
+region = ""
+home_region = ""
+tenancy_ocid = ""
+user_ocid = ""
+compartment_ocid = ""
+
+######################################################################################################
+# General Configuration
+######################################################################################################
+package_baseurl = ""
+package_install = ""
+customer_contacts = "demo@withoracle.cloud"
+INSTALL_HOME = ".local"
+
+######################################################################################################
+# Autonomous Database Configuration
+######################################################################################################
+ADB_NAME = ""
+IS_FREE_TIER = false
+autonomous_database_type = ""
+autonomous_database_cpu_core_count = 1
+autonomous_database_data_storage_size_in_tbs = 1
+
+######################################################################################################
+# Ansible
+######################################################################################################
+instance_shape        = "VM.Standard.E4.Flex"
+region                = "REGION_NAME"
+tenancy_ocid          = "TENANCY_OCID"
+compartment_ocid      = "COMPARTMENT_OCID"
+ssh_public_key_path   = "PATH_TO_PUBLIC_KEY"

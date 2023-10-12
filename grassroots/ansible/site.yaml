@@ -1,0 +1,6 @@
+---
+- name: Web
+  hosts: webs
+  become: true
+  roles:
+    - web
